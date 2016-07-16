@@ -216,20 +216,35 @@ NSString* ConvertSpeechErrorToString(int errorCode);
     NSString *subscriptionKey = @"f57ee437811a4e96aa71328993cdc5b4";
     //NSString *subscriptionKey = @"x";
     
-    FGTranslator *translator =
-    [[FGTranslator alloc] initWithBingAzureClientId:@"your_azure_client_id"
-                                             secret:@"your_azure_client_secret"];
     
-    [translator translateText:@"Bonjour!"
-                   completion:^(NSError *error, NSString *translated, NSString *sourceLanguage)
-    {
-        if (error)
-            NSLog(@"translation failed with error: %@", error);
-        else
-            NSLog(@"translated from %@: %@", sourceLanguage, translated);
-    }];
+//    
+//    FGTranslator *translator =
+//    [[FGTranslator alloc] initWithBingAzureClientId:@"speak-ar"
+//                                             secret:@"BFeZ3iSw4xd5nrE+dXWpWqwfa7dw4ipV+wlNNCJUSUI="];
+//    
+//    NSLog(@"translator: %@:", translator);
+//    // NSString *sourceLanguage = @"fr";
+//    // NSString *translated = @"en";
+//    
+//    [translator translateText:@"Bonjour!"
+//                   completion:^(NSError *error, NSString *translated, NSString *sourceLanguage)
+//    {
+//        if (error)
+//            NSLog(@"translation failed with error: %@", error);
+//        else
+//            NSLog(@"translated from %@: %@", sourceLanguage, translated);
+//    }];
+//    
+//    [translator supportedLanguages:^(NSError *error, NSArray *languageCodes)
+//    {
+//        if (error)
+//            NSLog(@"failed with error: %@", error);
+//        else
+//            NSLog(@"supported languages:%@", languageCodes);
+//    }];
 
-
+    
+    
 
     if (self.useMicrophone) {
         if (micClient == nil) {
@@ -343,42 +358,42 @@ NSString* ConvertSpeechErrorToString(int errorCode);
 //    }
 //}
 
-///**
-// * Called when a final response is received.
-// * @param response The final result.
-// */
-//-(void)onFinalResponseReceived:(RecognitionResult*)response {
-//    bool isFinalDicationMessage = self.mode == SpeechRecognitionMode_LongDictation &&
-//                                                (response.RecognitionStatus == RecognitionStatus_EndOfDictation ||
-//                                                 response.RecognitionStatus == RecognitionStatus_DictationEndSilenceTimeout);
-//    if (nil != micClient && self.useMicrophone && ((self.mode == SpeechRecognitionMode_ShortPhrase) || isFinalDicationMessage)) {
-//        // we got the final result, so it we can end the mic reco.  No need to do this
-//        // for dataReco, since we already called endAudio on it as soon as we were done
-//        // sending all the data.
-//        [micClient endMicAndRecognition];
-//    }
-//
-//    if ((self.mode == SpeechRecognitionMode_ShortPhrase) || isFinalDicationMessage) {
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            [[self startButton] setEnabled:YES];
-//        });
-//    }
-//    
-//    if (!isFinalDicationMessage) {
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            [self WriteLine:(@"********* Final n-BEST Results *********")];
-//            for (int i = 0; i < [response.RecognizedPhrase count]; i++) {
-//                RecognizedPhrase* phrase = response.RecognizedPhrase[i];
-//                [self WriteLine:[[NSString alloc] initWithFormat:(@"[%d] Confidence=%@ Text=\"%@\""), 
-//                                  i,
-//                                  ConvertSpeechRecoConfidenceEnumToString(phrase.Confidence),
-//                                  phrase.DisplayText]];
-//            }
-//
-//            [self WriteLine:(@"")];
-//        });
-//    }
-//}
+/**
+ * Called when a final response is received.
+ * @param response The final result.
+ */
+-(void)onFinalResponseReceived:(RecognitionResult*)response {
+    bool isFinalDicationMessage = self.mode == SpeechRecognitionMode_LongDictation &&
+                                                (response.RecognitionStatus == RecognitionStatus_EndOfDictation ||
+                                                 response.RecognitionStatus == RecognitionStatus_DictationEndSilenceTimeout);
+    if (nil != micClient && self.useMicrophone && ((self.mode == SpeechRecognitionMode_ShortPhrase) || isFinalDicationMessage)) {
+        // we got the final result, so it we can end the mic reco.  No need to do this
+        // for dataReco, since we already called endAudio on it as soon as we were done
+        // sending all the data.
+        [micClient endMicAndRecognition];
+    }
+
+    if ((self.mode == SpeechRecognitionMode_ShortPhrase) || isFinalDicationMessage) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[self startButton] setEnabled:YES];
+        });
+    }
+        
+    if (!isFinalDicationMessage) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self WriteLine:(@"********* Final n-BEST Results *********")];
+            for (int i = 0; i < [response.RecognizedPhrase count]; i++) {
+                RecognizedPhrase* phrase = response.RecognizedPhrase[i];
+                [self WriteLine:[[NSString alloc] initWithFormat:(@"[%d] Confidence=%@ Text=\"%@\""), 
+                                  i,
+                                  ConvertSpeechRecoConfidenceEnumToString(phrase.Confidence),
+                                  phrase.DisplayText]];
+            }
+
+            [self WriteLine:(@"")];
+        });
+    }
+}
 
 ///**
 // * Called when a final response is received and its intent is parsed 
