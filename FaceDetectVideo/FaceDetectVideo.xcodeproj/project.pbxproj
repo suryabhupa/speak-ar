@@ -1,0 +1,467 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5C046D2D158404EF006D444F /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C046D2C158404EF006D444F /* CoreMedia.framework */; };
+		5C046D3015840521006D444F /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C046D2F15840521006D444F /* CoreVideo.framework */; };
+		5C046D3215840535006D444F /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C046D3115840535006D444F /* CoreImage.framework */; };
+		5C1B143315868CA5007313EC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C1B143215868CA5007313EC /* QuartzCore.framework */; };
+		5C89EC4615E00107002183F7 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C89EC4515E00107002183F7 /* AssetsLibrary.framework */; };
+		5C8CDEF315A6287F00D65F6B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8CDEE715A6287F00D65F6B /* AppDelegate.m */; };
+		5C8CDEF415A6287F00D65F6B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5C8CDEE815A6287F00D65F6B /* InfoPlist.strings */; };
+		5C8CDEF515A6287F00D65F6B /* ViewControllerFaceDetectVideo_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C8CDEEA15A6287F00D65F6B /* ViewControllerFaceDetectVideo_iPad.xib */; };
+		5C8CDEF615A6287F00D65F6B /* ViewControllerFaceDetectVideo_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C8CDEEC15A6287F00D65F6B /* ViewControllerFaceDetectVideo_iPhone.xib */; };
+		5C8CDEF815A6287F00D65F6B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8CDEF015A6287F00D65F6B /* main.m */; };
+		5CA03E751AED9D2D0015B2F5 /* CvFaceDetector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5CA03E701AED9D2D0015B2F5 /* CvFaceDetector.mm */; };
+		5CA03E761AED9D2D0015B2F5 /* ImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA03E721AED9D2D0015B2F5 /* ImagePickerController.m */; };
+		5CA03E771AED9D2D0015B2F5 /* UIImageCVMatConverter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5CA03E741AED9D2D0015B2F5 /* UIImageCVMatConverter.mm */; };
+		5CA03E951AED9D660015B2F5 /* ViewControllerFaceDetectVideo.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5CA03E941AED9D660015B2F5 /* ViewControllerFaceDetectVideo.mm */; };
+		5CA03EB11AED9F150015B2F5 /* haarcascade_frontalcatface.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5CA03EA81AED9F140015B2F5 /* haarcascade_frontalcatface.xml */; };
+		5CA03EB21AED9F150015B2F5 /* haarcascade_frontalface_alt_tree.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5CA03EA91AED9F140015B2F5 /* haarcascade_frontalface_alt_tree.xml */; };
+		5CA03EB31AED9F150015B2F5 /* haarcascade_frontalface_alt.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5CA03EAA1AED9F140015B2F5 /* haarcascade_frontalface_alt.xml */; };
+		5CA03EB41AED9F150015B2F5 /* haarcascade_frontalface_alt2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5CA03EAB1AED9F150015B2F5 /* haarcascade_frontalface_alt2.xml */; };
+		5CA03EB51AED9F150015B2F5 /* haarcascade_frontalface_default.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5CA03EAC1AED9F150015B2F5 /* haarcascade_frontalface_default.xml */; };
+		5CA03EB61AED9F150015B2F5 /* haarcascade_profileface.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5CA03EAD1AED9F150015B2F5 /* haarcascade_profileface.xml */; };
+		5CA03EB71AED9F150015B2F5 /* lbpcascade_frontalcatface.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5CA03EAE1AED9F150015B2F5 /* lbpcascade_frontalcatface.xml */; };
+		5CA03EB81AED9F150015B2F5 /* lbpcascade_frontalface.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5CA03EAF1AED9F150015B2F5 /* lbpcascade_frontalface.xml */; };
+		5CA03EB91AED9F150015B2F5 /* lbpcascade_profileface.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5CA03EB01AED9F150015B2F5 /* lbpcascade_profileface.xml */; };
+		5CA03EBB1AED9F4A0015B2F5 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CA03EBA1AED9F4A0015B2F5 /* Media.xcassets */; };
+		5CA03ED51AED9FA50015B2F5 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA03ED01AED9FA50015B2F5 /* UIImage+Alpha.m */; };
+		5CA03ED61AED9FA50015B2F5 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA03ED21AED9FA50015B2F5 /* UIImage+Resize.m */; };
+		5CA03ED71AED9FA50015B2F5 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA03ED41AED9FA50015B2F5 /* UIImage+RoundedCorner.m */; };
+		5CA03EE71AEDAF760015B2F5 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CA03EE61AEDAF760015B2F5 /* opencv2.framework */; };
+		5CE6B38215821F17009E66E4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE6B38115821F17009E66E4 /* UIKit.framework */; };
+		5CE6B38415821F17009E66E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE6B38315821F17009E66E4 /* Foundation.framework */; };
+		5CE6B38615821F17009E66E4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE6B38515821F17009E66E4 /* CoreGraphics.framework */; };
+		5CE6B3AD1582234E009E66E4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE6B3AC1582234E009E66E4 /* AVFoundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5C046D2C158404EF006D444F /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		5C046D2F15840521006D444F /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		5C046D3115840535006D444F /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		5C1B143215868CA5007313EC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5C89EC4515E00107002183F7 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		5C8CDEE615A6287F00D65F6B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5C8CDEE715A6287F00D65F6B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5C8CDEE915A6287F00D65F6B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5C8CDEEB15A6287F00D65F6B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewControllerFaceDetectVideo_iPad.xib; sourceTree = "<group>"; };
+		5C8CDEED15A6287F00D65F6B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewControllerFaceDetectVideo_iPhone.xib; sourceTree = "<group>"; };
+		5C8CDEEE15A6287F00D65F6B /* FaceDetectVideo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "FaceDetectVideo-Info.plist"; sourceTree = "<group>"; };
+		5C8CDEEF15A6287F00D65F6B /* FaceDetectVideo-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FaceDetectVideo-Prefix.pch"; sourceTree = "<group>"; };
+		5C8CDEF015A6287F00D65F6B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5CA03E6F1AED9D2D0015B2F5 /* CvFaceDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CvFaceDetector.h; path = ../../shared/CvFaceDetector.h; sourceTree = "<group>"; };
+		5CA03E701AED9D2D0015B2F5 /* CvFaceDetector.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CvFaceDetector.mm; path = ../../shared/CvFaceDetector.mm; sourceTree = "<group>"; };
+		5CA03E711AED9D2D0015B2F5 /* ImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImagePickerController.h; path = ../../shared/ImagePickerController.h; sourceTree = "<group>"; };
+		5CA03E721AED9D2D0015B2F5 /* ImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImagePickerController.m; path = ../../shared/ImagePickerController.m; sourceTree = "<group>"; };
+		5CA03E731AED9D2D0015B2F5 /* UIImageCVMatConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIImageCVMatConverter.h; path = ../../shared/UIImageCVMatConverter.h; sourceTree = "<group>"; };
+		5CA03E741AED9D2D0015B2F5 /* UIImageCVMatConverter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = UIImageCVMatConverter.mm; path = ../../shared/UIImageCVMatConverter.mm; sourceTree = "<group>"; };
+		5CA03E931AED9D660015B2F5 /* ViewControllerFaceDetectVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerFaceDetectVideo.h; path = ../../shared/ViewControllers/ViewControllerFaceDetectVideo.h; sourceTree = "<group>"; };
+		5CA03E941AED9D660015B2F5 /* ViewControllerFaceDetectVideo.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ViewControllerFaceDetectVideo.mm; path = ../../shared/ViewControllers/ViewControllerFaceDetectVideo.mm; sourceTree = "<group>"; };
+		5CA03EA81AED9F140015B2F5 /* haarcascade_frontalcatface.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = haarcascade_frontalcatface.xml; path = ../../shared/data/haarcascade_frontalcatface.xml; sourceTree = "<group>"; };
+		5CA03EA91AED9F140015B2F5 /* haarcascade_frontalface_alt_tree.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = haarcascade_frontalface_alt_tree.xml; path = ../../shared/data/haarcascade_frontalface_alt_tree.xml; sourceTree = "<group>"; };
+		5CA03EAA1AED9F140015B2F5 /* haarcascade_frontalface_alt.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = haarcascade_frontalface_alt.xml; path = ../../shared/data/haarcascade_frontalface_alt.xml; sourceTree = "<group>"; };
+		5CA03EAB1AED9F150015B2F5 /* haarcascade_frontalface_alt2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = haarcascade_frontalface_alt2.xml; path = ../../shared/data/haarcascade_frontalface_alt2.xml; sourceTree = "<group>"; };
+		5CA03EAC1AED9F150015B2F5 /* haarcascade_frontalface_default.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = haarcascade_frontalface_default.xml; path = ../../shared/data/haarcascade_frontalface_default.xml; sourceTree = "<group>"; };
+		5CA03EAD1AED9F150015B2F5 /* haarcascade_profileface.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = haarcascade_profileface.xml; path = ../../shared/data/haarcascade_profileface.xml; sourceTree = "<group>"; };
+		5CA03EAE1AED9F150015B2F5 /* lbpcascade_frontalcatface.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = lbpcascade_frontalcatface.xml; path = ../../shared/data/lbpcascade_frontalcatface.xml; sourceTree = "<group>"; };
+		5CA03EAF1AED9F150015B2F5 /* lbpcascade_frontalface.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = lbpcascade_frontalface.xml; path = ../../shared/data/lbpcascade_frontalface.xml; sourceTree = "<group>"; };
+		5CA03EB01AED9F150015B2F5 /* lbpcascade_profileface.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = lbpcascade_profileface.xml; path = ../../shared/data/lbpcascade_profileface.xml; sourceTree = "<group>"; };
+		5CA03EBA1AED9F4A0015B2F5 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = ../../shared/Media.xcassets; sourceTree = "<group>"; };
+		5CA03ECF1AED9FA50015B2F5 /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Alpha.h"; path = "../../shared/categories/UIImage+Alpha.h"; sourceTree = "<group>"; };
+		5CA03ED01AED9FA50015B2F5 /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Alpha.m"; path = "../../shared/categories/UIImage+Alpha.m"; sourceTree = "<group>"; };
+		5CA03ED11AED9FA50015B2F5 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Resize.h"; path = "../../shared/categories/UIImage+Resize.h"; sourceTree = "<group>"; };
+		5CA03ED21AED9FA50015B2F5 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Resize.m"; path = "../../shared/categories/UIImage+Resize.m"; sourceTree = "<group>"; };
+		5CA03ED31AED9FA50015B2F5 /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+RoundedCorner.h"; path = "../../shared/categories/UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
+		5CA03ED41AED9FA50015B2F5 /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+RoundedCorner.m"; path = "../../shared/categories/UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
+		5CA03EE61AEDAF760015B2F5 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../../build/opencv2.framework; sourceTree = "<group>"; };
+		5CE6B37D15821F17009E66E4 /* FaceDetectVideo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceDetectVideo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CE6B38115821F17009E66E4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5CE6B38315821F17009E66E4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5CE6B38515821F17009E66E4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5CE6B3AC1582234E009E66E4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5CE6B37A15821F17009E66E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C89EC4615E00107002183F7 /* AssetsLibrary.framework in Frameworks */,
+				5C046D3015840521006D444F /* CoreVideo.framework in Frameworks */,
+				5C1B143315868CA5007313EC /* QuartzCore.framework in Frameworks */,
+				5C046D3215840535006D444F /* CoreImage.framework in Frameworks */,
+				5C046D2D158404EF006D444F /* CoreMedia.framework in Frameworks */,
+				5CE6B3AD1582234E009E66E4 /* AVFoundation.framework in Frameworks */,
+				5CE6B38215821F17009E66E4 /* UIKit.framework in Frameworks */,
+				5CE6B38415821F17009E66E4 /* Foundation.framework in Frameworks */,
+				5CA03EE71AEDAF760015B2F5 /* opencv2.framework in Frameworks */,
+				5CE6B38615821F17009E66E4 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5C1B14411586AB71007313EC /* UIImage-categories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "UIImage-categories";
+			sourceTree = "<group>";
+		};
+		5C291FEF15C5D73D0061151D /* ocv */ = {
+			isa = PBXGroup;
+			children = (
+				5C291FF015C5D7470061151D /* data */,
+			);
+			name = ocv;
+			sourceTree = "<group>";
+		};
+		5C291FF015C5D7470061151D /* data */ = {
+			isa = PBXGroup;
+			children = (
+				5CA03EA81AED9F140015B2F5 /* haarcascade_frontalcatface.xml */,
+				5CA03EA91AED9F140015B2F5 /* haarcascade_frontalface_alt_tree.xml */,
+				5CA03EAA1AED9F140015B2F5 /* haarcascade_frontalface_alt.xml */,
+				5CA03EAB1AED9F150015B2F5 /* haarcascade_frontalface_alt2.xml */,
+				5CA03EAC1AED9F150015B2F5 /* haarcascade_frontalface_default.xml */,
+				5CA03EAD1AED9F150015B2F5 /* haarcascade_profileface.xml */,
+				5CA03EAE1AED9F150015B2F5 /* lbpcascade_frontalcatface.xml */,
+				5CA03EAF1AED9F150015B2F5 /* lbpcascade_frontalface.xml */,
+				5CA03EB01AED9F150015B2F5 /* lbpcascade_profileface.xml */,
+			);
+			name = data;
+			sourceTree = "<group>";
+		};
+		5C4157AC1584C44000AE4DC0 /* shared */ = {
+			isa = PBXGroup;
+			children = (
+				5CA03E6F1AED9D2D0015B2F5 /* CvFaceDetector.h */,
+				5CA03E701AED9D2D0015B2F5 /* CvFaceDetector.mm */,
+				5CA03E711AED9D2D0015B2F5 /* ImagePickerController.h */,
+				5CA03E721AED9D2D0015B2F5 /* ImagePickerController.m */,
+				5CA03E731AED9D2D0015B2F5 /* UIImageCVMatConverter.h */,
+				5CA03E741AED9D2D0015B2F5 /* UIImageCVMatConverter.mm */,
+				5C1B14411586AB71007313EC /* UIImage-categories */,
+				5CAA7E8815A633BE00F425E5 /* ViewControllers */,
+			);
+			name = shared;
+			path = ../shared;
+			sourceTree = "<group>";
+		};
+		5C8CDEE515A6287F00D65F6B /* App */ = {
+			isa = PBXGroup;
+			children = (
+				5C8CDEE615A6287F00D65F6B /* AppDelegate.h */,
+				5C8CDEE715A6287F00D65F6B /* AppDelegate.m */,
+				5C8CDEE815A6287F00D65F6B /* InfoPlist.strings */,
+				5C8CDEEA15A6287F00D65F6B /* ViewControllerFaceDetectVideo_iPad.xib */,
+				5C8CDEEC15A6287F00D65F6B /* ViewControllerFaceDetectVideo_iPhone.xib */,
+				5C8CDEEE15A6287F00D65F6B /* FaceDetectVideo-Info.plist */,
+				5C8CDEEF15A6287F00D65F6B /* FaceDetectVideo-Prefix.pch */,
+				5C8CDEF015A6287F00D65F6B /* main.m */,
+			);
+			name = App;
+			path = FaceDetectVideo;
+			sourceTree = SOURCE_ROOT;
+		};
+		5CA03EC51AED9F830015B2F5 /* categories */ = {
+			isa = PBXGroup;
+			children = (
+				5CA03ECF1AED9FA50015B2F5 /* UIImage+Alpha.h */,
+				5CA03ED01AED9FA50015B2F5 /* UIImage+Alpha.m */,
+				5CA03ED11AED9FA50015B2F5 /* UIImage+Resize.h */,
+				5CA03ED21AED9FA50015B2F5 /* UIImage+Resize.m */,
+				5CA03ED31AED9FA50015B2F5 /* UIImage+RoundedCorner.h */,
+				5CA03ED41AED9FA50015B2F5 /* UIImage+RoundedCorner.m */,
+			);
+			name = categories;
+			sourceTree = "<group>";
+		};
+		5CAA7E8815A633BE00F425E5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5CA03E931AED9D660015B2F5 /* ViewControllerFaceDetectVideo.h */,
+				5CA03E941AED9D660015B2F5 /* ViewControllerFaceDetectVideo.mm */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		5CE6B37215821F17009E66E4 = {
+			isa = PBXGroup;
+			children = (
+				5CA03EBA1AED9F4A0015B2F5 /* Media.xcassets */,
+				5C8CDEE515A6287F00D65F6B /* App */,
+				5CA03EC51AED9F830015B2F5 /* categories */,
+				5C291FEF15C5D73D0061151D /* ocv */,
+				5C4157AC1584C44000AE4DC0 /* shared */,
+				5CE6B38015821F17009E66E4 /* Frameworks */,
+				5CE6B37E15821F17009E66E4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5CE6B37E15821F17009E66E4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5CE6B37D15821F17009E66E4 /* FaceDetectVideo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5CE6B38015821F17009E66E4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5CA03EE61AEDAF760015B2F5 /* opencv2.framework */,
+				5C89EC4515E00107002183F7 /* AssetsLibrary.framework */,
+				5C1B143215868CA5007313EC /* QuartzCore.framework */,
+				5C046D3115840535006D444F /* CoreImage.framework */,
+				5C046D2F15840521006D444F /* CoreVideo.framework */,
+				5CE6B3AC1582234E009E66E4 /* AVFoundation.framework */,
+				5CE6B38115821F17009E66E4 /* UIKit.framework */,
+				5CE6B38315821F17009E66E4 /* Foundation.framework */,
+				5CE6B38515821F17009E66E4 /* CoreGraphics.framework */,
+				5C046D2C158404EF006D444F /* CoreMedia.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5CE6B37C15821F17009E66E4 /* FaceDetectVideo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CE6B39E15821F17009E66E4 /* Build configuration list for PBXNativeTarget "FaceDetectVideo" */;
+			buildPhases = (
+				5CE6B37915821F17009E66E4 /* Sources */,
+				5CE6B37A15821F17009E66E4 /* Frameworks */,
+				5CE6B37B15821F17009E66E4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FaceDetectVideo;
+			productName = FaceDetectSimple;
+			productReference = 5CE6B37D15821F17009E66E4 /* FaceDetectVideo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5CE6B37415821F17009E66E4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "Eduard Feicho";
+			};
+			buildConfigurationList = 5CE6B37715821F17009E66E4 /* Build configuration list for PBXProject "FaceDetectVideo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5CE6B37215821F17009E66E4;
+			productRefGroup = 5CE6B37E15821F17009E66E4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5CE6B37C15821F17009E66E4 /* FaceDetectVideo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5CE6B37B15821F17009E66E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CA03EB31AED9F150015B2F5 /* haarcascade_frontalface_alt.xml in Resources */,
+				5CA03EBB1AED9F4A0015B2F5 /* Media.xcassets in Resources */,
+				5C8CDEF415A6287F00D65F6B /* InfoPlist.strings in Resources */,
+				5CA03EB81AED9F150015B2F5 /* lbpcascade_frontalface.xml in Resources */,
+				5CA03EB11AED9F150015B2F5 /* haarcascade_frontalcatface.xml in Resources */,
+				5C8CDEF515A6287F00D65F6B /* ViewControllerFaceDetectVideo_iPad.xib in Resources */,
+				5CA03EB71AED9F150015B2F5 /* lbpcascade_frontalcatface.xml in Resources */,
+				5CA03EB41AED9F150015B2F5 /* haarcascade_frontalface_alt2.xml in Resources */,
+				5C8CDEF615A6287F00D65F6B /* ViewControllerFaceDetectVideo_iPhone.xib in Resources */,
+				5CA03EB61AED9F150015B2F5 /* haarcascade_profileface.xml in Resources */,
+				5CA03EB51AED9F150015B2F5 /* haarcascade_frontalface_default.xml in Resources */,
+				5CA03EB91AED9F150015B2F5 /* lbpcascade_profileface.xml in Resources */,
+				5CA03EB21AED9F150015B2F5 /* haarcascade_frontalface_alt_tree.xml in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5CE6B37915821F17009E66E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CA03E771AED9D2D0015B2F5 /* UIImageCVMatConverter.mm in Sources */,
+				5CA03ED71AED9FA50015B2F5 /* UIImage+RoundedCorner.m in Sources */,
+				5CA03ED61AED9FA50015B2F5 /* UIImage+Resize.m in Sources */,
+				5CA03E951AED9D660015B2F5 /* ViewControllerFaceDetectVideo.mm in Sources */,
+				5CA03E751AED9D2D0015B2F5 /* CvFaceDetector.mm in Sources */,
+				5C8CDEF315A6287F00D65F6B /* AppDelegate.m in Sources */,
+				5CA03ED51AED9FA50015B2F5 /* UIImage+Alpha.m in Sources */,
+				5C8CDEF815A6287F00D65F6B /* main.m in Sources */,
+				5CA03E761AED9D2D0015B2F5 /* ImagePickerController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5C8CDEE815A6287F00D65F6B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5C8CDEE915A6287F00D65F6B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		5C8CDEEA15A6287F00D65F6B /* ViewControllerFaceDetectVideo_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5C8CDEEB15A6287F00D65F6B /* en */,
+			);
+			name = ViewControllerFaceDetectVideo_iPad.xib;
+			sourceTree = "<group>";
+		};
+		5C8CDEEC15A6287F00D65F6B /* ViewControllerFaceDetectVideo_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5C8CDEED15A6287F00D65F6B /* en */,
+			);
+			name = ViewControllerFaceDetectVideo_iPhone.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5CE6B39C15821F17009E66E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5CE6B39D15821F17009E66E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5CE6B39F15821F17009E66E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LIBRARY = "libc++";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../build/\"",
+				);
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FaceDetectVideo/FaceDetectVideo-Prefix.pch";
+				INFOPLIST_FILE = "FaceDetectVideo/FaceDetectVideo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-mfpu=neon";
+				PRODUCT_NAME = FaceDetectVideo;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		5CE6B3A015821F17009E66E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LIBRARY = "libc++";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../build/\"",
+				);
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FaceDetectVideo/FaceDetectVideo-Prefix.pch";
+				INFOPLIST_FILE = "FaceDetectVideo/FaceDetectVideo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"-mfpu=neon",
+				);
+				PRODUCT_NAME = FaceDetectVideo;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5CE6B37715821F17009E66E4 /* Build configuration list for PBXProject "FaceDetectVideo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CE6B39C15821F17009E66E4 /* Debug */,
+				5CE6B39D15821F17009E66E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5CE6B39E15821F17009E66E4 /* Build configuration list for PBXNativeTarget "FaceDetectVideo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CE6B39F15821F17009E66E4 /* Debug */,
+				5CE6B3A015821F17009E66E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5CE6B37415821F17009E66E4 /* Project object */;
+}
