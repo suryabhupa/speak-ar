@@ -1,3 +1,3 @@
 # speak-ar
 
-Best app. B-) 
+AR + real time translation = Best app. B-) 
