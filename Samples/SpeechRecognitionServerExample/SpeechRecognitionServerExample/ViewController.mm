@@ -216,25 +216,30 @@ NSString* ConvertSpeechErrorToString(int errorCode);
     NSString *subscriptionKey = @"f57ee437811a4e96aa71328993cdc5b4";
     //NSString *subscriptionKey = @"x";
     
+    FGTranslator *translator = [[FGTranslator alloc] initWithGoogleAPIKey:@"AIzaSyB41zQEDWZ7zjUXOyPBRZuS7bbSVjW_0DM"];
     
-//    
 //    FGTranslator *translator =
 //    [[FGTranslator alloc] initWithBingAzureClientId:@"speak-ar"
 //                                             secret:@"BFeZ3iSw4xd5nrE+dXWpWqwfa7dw4ipV+wlNNCJUSUI="];
-//    
-//    NSLog(@"translator: %@:", translator);
-//    // NSString *sourceLanguage = @"fr";
-//    // NSString *translated = @"en";
-//    
-//    [translator translateText:@"Bonjour!"
-//                   completion:^(NSError *error, NSString *translated, NSString *sourceLanguage)
-//    {
-//        if (error)
-//            NSLog(@"translation failed with error: %@", error);
-//        else
-//            NSLog(@"translated from %@: %@", sourceLanguage, translated);
-//    }];
-//    
+    
+    
+    NSLog(@"translator: %@:", translator);
+    NSString *sourceLanguage = @"es";
+    NSString *translated = @"en";
+    
+    NSLog(@"hello world1");
+
+    [translator translateText:@"Hola!" withSource:sourceLanguage target:translated completion:^(NSError *error, NSString *translated, NSString *sourceLanguage)
+    {
+        NSLog(@"hello world");
+        if (error)
+            NSLog(@"translation failed with error: %@", error);
+        else
+            NSLog(@"translated from %@: %@", sourceLanguage, translated);
+    }];
+    
+    NSLog(@"hello world2");
+
 //    [translator supportedLanguages:^(NSError *error, NSArray *languageCodes)
 //    {
 //        if (error)
@@ -378,7 +383,33 @@ NSString* ConvertSpeechErrorToString(int errorCode);
             [[self startButton] setEnabled:YES];
         });
     }
-        
+    
+//    NSString *c_id = @"speak-ar";
+//    NSString *c_secret = @"BFeZ3iSw4xd5nrE+dXWpWqwfa7dw4ipV+wlNNCJUSUI=";
+//    NSString *c_secret = @"x";
+//    NSString *text = @"";
+//    NSString *to = @"en";
+//    NSString *from = @"de";
+//    
+////    NSString *str1 = [NSString stringWithFormat:@"https://api.datamarket.azure.com/Bing/MicrosoftTranslator/v1/?&client_id=%@&client_secret=%@",c_id,c_secret];
+//    
+//    NSString *get = [NSString stringWithFormat:@"client_id=%@&client_secret=%@&text=%@&to=%@&from=%@",c_id,c_secret,text,to,from];
+//    NSData *getData = [get dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+//    NSString *getLength = [NSString stringWithFormat:@"%lu",[getData length]];
+//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+//    [request setURL:[NSURL URLWithString:@"https://api.datamarket.azure.com/Bing/MicrosoftTranslator/v1/"]];
+//    [request setHTTPMethod:@"GET"];
+//    [request setValue:getLength forHTTPHeaderField:@"Content-Length"];
+//    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+//    [request setHTTPBody:getData];
+//    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+//    if(conn) {
+//        NSLog(@"Connection Successful");
+//    } else {
+//        NSLog(@"Connection could not be made");
+//    }
+
+    
     if (!isFinalDicationMessage) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [self WriteLine:(@"********* Final n-BEST Results *********")];
