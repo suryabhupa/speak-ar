@@ -243,7 +243,7 @@ NSMutableString *translation = [NSMutableString stringWithString: @""];
     // The logic for handling the language selection
     
     self.tableView.hidden = YES;
-    [self.btnOutlet setBackgroundColor:[UIColor orangeColor]];
+    // [self.btnOutlet setBackgroundColor:[UIColor orangeColor]];
     [self.btnOutlet setTitle:languageTitle forState:UIControlStateNormal];
     //adding action programatically
     [self.btnOutlet addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -789,7 +789,7 @@ NSString* ConvertSpeechRecoConfidenceEnumToString(Confidence confidence) {
         [[self.videoDataOutput connectionWithMediaType:AVMediaTypeVideo] setEnabled:YES];
         
         self.previewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:session];
-        self.previewLayer.backgroundColor = [[UIColor blackColor] CGColor];
+        // self.previewLayer.backgroundColor = [[UIColor blackColor] CGColor];
         self.previewLayer.videoGravity = AVLayerVideoGravityResizeAspect;
         
         CALayer *rootLayer = [self.previewView layer];

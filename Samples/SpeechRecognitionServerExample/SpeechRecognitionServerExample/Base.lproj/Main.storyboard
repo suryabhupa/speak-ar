@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C81h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -18,48 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p95-w5-6xs">
-                                <rect key="frame" x="16" y="66" width="288" height="239"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="micRadioButton">
-                                        <rect key="frame" x="0.0" y="20" width="288" height="30"/>
-                                        <state key="normal" title="Use Microphone with ShortPhrase mode">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="RadioButton_Click:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6cx-4a-MK1"/>
-                                        </connections>
-                                    </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dnO-Vz-4mS">
-                                        <rect key="frame" x="0.0" y="5" width="288" height="234"/>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0v-YW-TuL">
-                                <rect key="frame" x="172" y="33" width="132" height="30"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Change Language"/>
-                                <connections>
-                                    <action selector="ChangeModeButton_Click:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iW6-LL-8of"/>
-                                </connections>
-                            </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wqY-yy-ypH">
-                                <rect key="frame" x="98" y="403" width="122" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecs-PQ-URd">
-                                <rect key="frame" x="98" y="374" width="122" height="30"/>
-                                <color key="backgroundColor" red="1" green="0.20853286009999999" blue="0.21242350970000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wa8-Uo-PBr">
-                                <rect key="frame" x="126" y="336" width="67" height="30"/>
+                                <rect key="frame" x="127" y="460" width="67" height="30"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Start">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -68,29 +26,46 @@
                                     <action selector="StartButton_Click:" destination="BYZ-38-t0r" eventType="touchUpInside" id="01N-Fz-JMF"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6YG-0B-mkq" userLabel="Preview View">
-                                <rect key="frame" x="38" y="121" width="244" height="129"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6YG-0B-mkq" userLabel="Preview View">
+                                <rect key="frame" x="16" y="36" width="288" height="404"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecs-PQ-URd">
+                                <rect key="frame" x="99" y="506" width="122" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.20853286009999999" blue="0.21242350970000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wqY-yy-ypH">
+                                <rect key="frame" x="99" y="537" width="122" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.66347027830000005" green="0.72883533379999998" blue="0.81130923119999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Wa8-Uo-PBr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="50" id="tw1-iG-DfC"/>
+                            <constraint firstItem="6YG-0B-mkq" firstAttribute="centerX" secondItem="Wa8-Uo-PBr" secondAttribute="centerX" constant="-0.5" id="1Nz-gi-V1A"/>
+                            <constraint firstItem="Wa8-Uo-PBr" firstAttribute="centerX" secondItem="ecs-PQ-URd" secondAttribute="centerX" constant="1.5" id="bAj-Qb-7e1"/>
+                            <constraint firstItem="wqY-yy-ypH" firstAttribute="centerX" secondItem="ecs-PQ-URd" secondAttribute="centerX" id="li5-dv-KMb"/>
+                            <constraint firstAttribute="centerX" secondItem="Wa8-Uo-PBr" secondAttribute="centerX" constant="-0.5" id="pQ9-hf-l5z"/>
+                            <constraint firstAttribute="centerX" secondItem="6YG-0B-mkq" secondAttribute="centerX" id="xll-Rp-6I3"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="btnOutlet" destination="ecs-PQ-URd" id="RH6-Em-76O"/>
-                        <outlet property="micRadioButton" destination="micRadioButton" id="micRadioButtonOutlet"/>
                         <outlet property="previewView" destination="6YG-0B-mkq" id="6Kc-5p-Cy0"/>
-                        <outlet property="quoteText" destination="dnO-Vz-4mS" id="Mip-pL-68k"/>
-                        <outlet property="radioGroup" destination="p95-w5-6xs" id="PQB-Oo-tHb"/>
                         <outlet property="startButton" destination="Wa8-Uo-PBr" id="Goc-cf-sdo"/>
                         <outlet property="tableView" destination="wqY-yy-ypH" id="Kag-zu-yId"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-26" y="256"/>
+            <point key="canvasLocation" x="-62" y="211"/>
         </scene>
     </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>

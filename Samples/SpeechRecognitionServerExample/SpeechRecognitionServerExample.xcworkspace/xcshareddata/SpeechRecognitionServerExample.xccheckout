@@ -14,6 +14,8 @@
 		<string>https://github.com/Microsoft/Cognitive-Speech-STT-iOS.git</string>
 		<key>3760EFCAE25C75DAC4A1A0912CC18D848D5E86D5</key>
 		<string>https://github.com/suryabhupa/speak-ar</string>
+		<key>8C6457F69774EBEA0612370BB2F302937ABB53CF</key>
+		<string>https://github.com/jeroentrappers/FaceDetectionPOC.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Samples/SpeechRecognitionServerExample/SpeechRecognitionServerExample.xcworkspace</string>
@@ -23,6 +25,8 @@
 		<string>../../../../Cognitive-Speech-STT-iOS</string>
 		<key>3760EFCAE25C75DAC4A1A0912CC18D848D5E86D5</key>
 		<string>../../..</string>
+		<key>8C6457F69774EBEA0612370BB2F302937ABB53CF</key>
+		<string>../../../../core-image/FaceDetectionPOC</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/suryabhupa/speak-ar</string>
@@ -39,6 +43,14 @@
 			<string>1C7A965FE485A5BA0145B9146B8C9E9F601019E2</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Cognitive-Speech-STT-iOS</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8C6457F69774EBEA0612370BB2F302937ABB53CF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>FaceDetectionPOC</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>

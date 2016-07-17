@@ -26,11 +26,10 @@
 		D42012881D3BA86F00ABD6A5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42012871D3BA86F00ABD6A5 /* UIKit.framework */; };
 		D420128A1D3BA87700ABD6A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42012891D3BA87700ABD6A5 /* Foundation.framework */; };
 		D420128C1D3BAFD000ABD6A5 /* border.png in Resources */ = {isa = PBXBuildFile; fileRef = D420128B1D3BAFD000ABD6A5 /* border.png */; };
-		D420128E1D3BBBAB00ABD6A5 /* bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = D420128D1D3BBBAB00ABD6A5 /* bubble.png */; };
-		D42012901D3BBC9C00ABD6A5 /* bubble-final.png in Resources */ = {isa = PBXBuildFile; fileRef = D420128F1D3BBC9C00ABD6A5 /* bubble-final.png */; };
 		D81A93251D3ADF4200420790 /* libFGTranslator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D81A93241D3ADF4200420790 /* libFGTranslator.a */; };
 		D81A93271D3ADF4A00420790 /* libAFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D81A93261D3ADF4A00420790 /* libAFNetworking.a */; };
 		D81A93291D3ADF5000420790 /* libPINCache.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D81A93281D3ADF5000420790 /* libPINCache.a */; };
+		D89C4EC61D3BD1AB006F9D9E /* wilderness.png in Resources */ = {isa = PBXBuildFile; fileRef = D89C4EC51D3BD1AB006F9D9E /* wilderness.png */; };
 		E77379441ACB3E23000521FF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 749D10C01ABA24A700903F55 /* AudioToolbox.framework */; };
 		E7A9B7CA1AD304AE001FDBEA /* SpeechSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A9B7C91AD304AE001FDBEA /* SpeechSDK.framework */; };
 		E7A9B7CB1AD304E1001FDBEA /* SpeechSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7A9B7C91AD304AE001FDBEA /* SpeechSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -79,11 +78,10 @@
 		D42012871D3BA86F00ABD6A5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D42012891D3BA87700ABD6A5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D420128B1D3BAFD000ABD6A5 /* border.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = border.png; path = "../../../../core-image/FaceDetectionPOC/FaceDetectionPOC/border.png"; sourceTree = "<group>"; };
-		D420128D1D3BBBAB00ABD6A5 /* bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bubble.png; path = ../../../../../Desktop/bubble.png; sourceTree = "<group>"; };
-		D420128F1D3BBC9C00ABD6A5 /* bubble-final.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bubble-final.png"; path = "../../../../../Desktop/bubble-final.png"; sourceTree = "<group>"; };
 		D81A93241D3ADF4200420790 /* libFGTranslator.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFGTranslator.a; path = "Pods/../build/Debug-iphoneos/FGTranslator/libFGTranslator.a"; sourceTree = "<group>"; };
 		D81A93261D3ADF4A00420790 /* libAFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAFNetworking.a; path = "Pods/../build/Debug-iphoneos/AFNetworking/libAFNetworking.a"; sourceTree = "<group>"; };
 		D81A93281D3ADF5000420790 /* libPINCache.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPINCache.a; path = "Pods/../build/Debug-iphoneos/PINCache/libPINCache.a"; sourceTree = "<group>"; };
+		D89C4EC51D3BD1AB006F9D9E /* wilderness.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wilderness.png; sourceTree = SOURCE_ROOT; };
 		D89D57571D3ADC9A00A517DA /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "Pods/../build/Debug-iphoneos/AFNetworking/AFNetworking.framework"; sourceTree = "<group>"; };
 		D89D57581D3ADC9A00A517DA /* DropdownMenu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropdownMenu.framework; path = "Pods/../build/Debug-iphoneos/DropdownMenu/DropdownMenu.framework"; sourceTree = "<group>"; };
 		D89D57591D3ADC9A00A517DA /* FGTranslator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FGTranslator.framework; path = "Pods/../build/Debug-iphoneos/FGTranslator/FGTranslator.framework"; sourceTree = "<group>"; };
@@ -144,8 +142,7 @@
 		744057E61AB005E900D4462E /* SpeechRecognitionServerExample */ = {
 			isa = PBXGroup;
 			children = (
-				D420128F1D3BBC9C00ABD6A5 /* bubble-final.png */,
-				D420128D1D3BBBAB00ABD6A5 /* bubble.png */,
+				D89C4EC51D3BD1AB006F9D9E /* wilderness.png */,
 				D420128B1D3BAFD000ABD6A5 /* border.png */,
 				745A3B4D1ABCBB0D00F8191B /* Assets */,
 				744057EB1AB005E900D4462E /* AppDelegate.h */,
@@ -272,9 +269,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D42012901D3BBC9C00ABD6A5 /* bubble-final.png in Resources */,
 				D420128C1D3BAFD000ABD6A5 /* border.png in Resources */,
-				D420128E1D3BBBAB00ABD6A5 /* bubble.png in Resources */,
+				D89C4EC61D3BD1AB006F9D9E /* wilderness.png in Resources */,
 				744057F31AB005E900D4462E /* Main.storyboard in Resources */,
 				F9558A361AEBF18200A0A230 /* settings.plist in Resources */,
 				745A3B4F1ABCBB4700F8191B /* batman.wav in Resources */,
