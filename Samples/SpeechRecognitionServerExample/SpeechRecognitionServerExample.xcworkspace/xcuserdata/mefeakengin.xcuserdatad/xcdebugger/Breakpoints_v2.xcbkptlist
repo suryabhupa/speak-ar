@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SpeechRecognitionServerExample/ViewController.mm"
-            timestampString = "490457006.275547"
+            timestampString = "490458080.071317"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "541"
-            endingLineNumber = "541"
+            startingLineNumber = "506"
+            endingLineNumber = "506"
             landmarkName = "-translateTranscription:"
             landmarkType = "5">
          </BreakpointContent>

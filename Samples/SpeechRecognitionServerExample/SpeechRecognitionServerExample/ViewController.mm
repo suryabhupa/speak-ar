@@ -427,47 +427,6 @@ NSMutableString *translation = [NSMutableString stringWithString: @""];
 //}
 
 
-+(UIImage*) drawText:(NSString*) text
-             inImage:(UIImage*)  image
-             atPoint:(CGPoint)   point
-{
-    UIGraphicsBeginImageContextWithOptions(image.size, YES, 0.0f);
-    [image drawInRect:CGRectMake(0,0,image.size.width,image.size.height)];
-    CGRect rect = CGRectMake(point.x, point.y, image.size.width, image.size.height);
-    [[UIColor whiteColor] set];
-    
-//    if ((self = [super initWithFrame:frame]))
-//    {
-//        self.opaque = NO;
-//    }
-//    return self;
-    
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextClearRect(context, rect);
-    CGContextSetStrokeColorWithColor(context, [UIColor whiteColor].CGColor);
-    CGContextSetLineWidth(context, 5.0);
-    CGContextMoveToPoint(context, 100.0,0.0);
-    CGContextAddLineToPoint(context,100.0, 100.0);
-    CGContextStrokePath(context);
-    
-    UIFont *font = [UIFont boldSystemFontOfSize:20];
-    if([text respondsToSelector:@selector(drawInRect:withAttributes:)])
-    {
-        //iOS 7
-        NSDictionary *att = @{NSFontAttributeName:font};
-        [text drawInRect:rect withAttributes:att];
-    }
-    else
-    {
-        //legacy support
-        [text drawInRect:CGRectIntegral(rect) withFont:font];
-    }
-    
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return newImage;
-}
 
 /**
  * Logs the recognition start.
@@ -738,20 +697,20 @@ NSString* ConvertSpeechRecoConfidenceEnumToString(Confidence confidence) {
     // Select a video device, make an input
     AVCaptureDevice *device;
     
-    AVCaptureDevicePosition desiredPosition = AVCaptureDevicePositionBack;
+    AVCaptureDevicePosition desiredPosition = AVCaptureDevicePositionFront;
     
     // find the front facing camera
     for (AVCaptureDevice *d in [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo]) {
         if ([d position] == desiredPosition) {
             device = d;
-            self.isUsingFrontFacingCamera = NO;
+            self.isUsingFrontFacingCamera = YES;
             break;
         }
     }
     // fall back to the default camera.
     if( nil == device )
     {
-        self.isUsingFrontFacingCamera = YES;
+        self.isUsingFrontFacingCamera = NO;
         device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     }
     
@@ -938,8 +897,8 @@ NSString* ConvertSpeechRecoConfidenceEnumToString(Confidence confidence) {
         faceRect.origin.y *= heightScaleBy;
         
         //Added by Efe:
-        faceRect.size.width *= 1.3;
-        faceRect.size.height *= 1.3;
+        faceRect.size.width *= 1;
+        faceRect.size.height *= 1;
         faceRect.origin.x += faceRect.size.width * 0.7;
         faceRect.origin.y -= faceRect.size.height * 0.7;
         
@@ -949,6 +908,25 @@ NSString* ConvertSpeechRecoConfidenceEnumToString(Confidence confidence) {
             faceRect = CGRectOffset(faceRect, previewBox.origin.x, previewBox.origin.y);
         
         CALayer *featureLayer = nil;
+
+//        CALayer *sublayer = [CALayer layer];
+//        sublayer.shadowColor = [UIColor blackColor].CGColor;
+//        sublayer.shadowOpacity = 0.8;
+//        [featureLayer addSublayer:sublayer];
+////        [CALayer resizeLayer:sublayer to:size];
+//
+
+        
+//        CATextLayer *label = [[CATextLayer alloc] init];
+//        [label setFont:@"Helvetica-Bold"];
+//        [label setFontSize:20];
+//        [label setFrame:validFrame];
+//        [label setString:@"Hello"];
+//        [label setAlignmentMode:kCAAlignmentCenter];
+//        [label setForegroundColor:[[UIColor clearColor] CGColor]];
+//        [featureLayer insertSublayer:label Above:layer];
+//        
+//        [label release];
         
         // re-use an existing layer if possible
         while ( !featureLayer && (currentSublayer < sublayersCount) ) {
@@ -958,7 +936,6 @@ NSString* ConvertSpeechRecoConfidenceEnumToString(Confidence confidence) {
                 [currentLayer setHidden:NO];
             }
         }
-        
 
         // note: replace "ImageUtils" with the class where you pasted the method above
         UIImage *imageWithText = [ViewController drawText:@"Some text"
@@ -969,8 +946,27 @@ NSString* ConvertSpeechRecoConfidenceEnumToString(Confidence confidence) {
         if ( !featureLayer ) {
             featureLayer = [[CALayer alloc]init];
             featureLayer.contents = (id)imageWithText.CGImage;
+            featureLayer.contents = (id)self.borderImage.CGImage;
             [featureLayer setName:@"FaceLayer"];
+ 
+            CATextLayer *TextLayer = [CATextLayer layer];
+            TextLayer.string = @"Test";
+//            TextLayer.font = [UIFont boldSystemFontOfSize:18].fontName;
+            TextLayer.backgroundColor = [UIColor blackColor].CGColor;
+            TextLayer.position = CGPointMake(80.0, 80.0f);
+            TextLayer.wrapped = NO;
+            [featureLayer addSublayer:TextLayer];
+            
+//            CATextLayer *label = [[CATextLayer alloc] init];
+//            [label setFontSize:20];
+////            [label setFrame: featureLayer.frame];
+//            [label setString:@"Hello, do you see that?"];
+////            [label setAlignmentMode:kCAAlignmentCenter];
+//            [label setForegroundColor:[[UIColor redColor] CGColor]];
+//            [featureLayer addSublayer:label];
+            
             [self.previewLayer addSublayer:featureLayer];
+            
             featureLayer = nil;
         }
         [featureLayer setFrame:faceRect];
@@ -997,6 +993,60 @@ NSString* ConvertSpeechRecoConfidenceEnumToString(Confidence confidence) {
     }
     
     [CATransaction commit];
+}
+
+
++(UIImage*) drawText:(NSString*) text
+             inImage:(UIImage*)  image
+             atPoint:(CGPoint)   point
+{
+    UIGraphicsBeginImageContextWithOptions(image.size, YES, 0.0f);
+    [image drawInRect:CGRectMake(0,0,image.size.width/2,image.size.height/2)];
+    CGRect rect = CGRectMake(point.x, point.y, image.size.width/2, image.size.height/2);
+    
+//    rect.backgroundColor = [UIColor clearColor];
+//    
+//    [UIImageView setBackgroundColor:[UIColor clearColor]];
+////    [self frame setBackgroundColor:[UIColor clearColor]];
+    
+    [[UIColor whiteColor] set];
+    
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        CGContextSaveGState(context);
+    //    CGRect a=self.frame;
+    //    a.origin.x=0;
+    //    a.origin.y=0;
+        CGContextSetBlendMode(context, kCGBlendModeClear);
+    //    CGContextSetFillColorWithColor(context, [UIColor blackColor].CGColor);
+    //    CGContextAddRect(context, a);
+        CGContextFillPath(context);
+        CGContextRestoreGState(context);
+    
+    UIFont *font = [UIFont boldSystemFontOfSize:20];
+    if([text respondsToSelector:@selector(drawInRect:withAttributes:)])
+    {
+        //iOS 7
+        NSDictionary *att = @{NSFontAttributeName:font};
+        [text drawInRect:rect withAttributes:att];
+    }
+    else
+    {
+        //legacy support
+        [text drawInRect:CGRectIntegral(rect) withFont:font];
+    }
+    
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    //    self = [super initWithFrame:frame];
+    //    if (self) {
+    //        // Initialization code
+    //        [self setBackgroundColor:[UIColor clearColor]];
+    //    }
+    //    return self;
+    
+    return newImage;
+    
 }
 
 - (NSNumber *) exifOrientation: (UIDeviceOrientation) orientation
