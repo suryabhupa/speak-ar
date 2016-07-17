@@ -28,7 +28,12 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEAL
     NSMutableString* textOnScreen;
     DataRecognitionClient* dataClient;
     MicrophoneRecognitionClient* micClient;
+    
+    NSArray *rectsArray;
+    UIColor *backgroundColor;
 }
+
+- (id)initWithFrame:(CGRect)frame backgroundColor:(UIColor*)color andTransparentRects:(NSArray*)rects;
 
 @property(nonatomic, strong) IBOutlet UNIVERSAL_VIEW*   radioGroup;
 @property(nonatomic, strong) IBOutlet UNIVERSAL_BUTTON* startButton;
