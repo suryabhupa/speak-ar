@@ -17,6 +17,17 @@
 		745A3B4F1ABCBB4700F8191B /* batman.wav in Resources */ = {isa = PBXBuildFile; fileRef = 745A3B4E1ABCBB4700F8191B /* batman.wav */; };
 		745A3B511ABCBB6000F8191B /* whatstheweatherlike.wav in Resources */ = {isa = PBXBuildFile; fileRef = 745A3B501ABCBB6000F8191B /* whatstheweatherlike.wav */; };
 		749D10BE1ABA248D00903F55 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 749D10BC1ABA248D00903F55 /* AVFoundation.framework */; };
+		D420127C1D3BA83F00ABD6A5 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D420127B1D3BA83F00ABD6A5 /* ImageIO.framework */; };
+		D420127E1D3BA84600ABD6A5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D420127D1D3BA84600ABD6A5 /* QuartzCore.framework */; };
+		D42012801D3BA84F00ABD6A5 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D420127F1D3BA84F00ABD6A5 /* CoreMedia.framework */; };
+		D42012821D3BA85500ABD6A5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42012811D3BA85500ABD6A5 /* CoreGraphics.framework */; };
+		D42012841D3BA85D00ABD6A5 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42012831D3BA85D00ABD6A5 /* CoreImage.framework */; };
+		D42012861D3BA86900ABD6A5 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42012851D3BA86900ABD6A5 /* CoreVideo.framework */; };
+		D42012881D3BA86F00ABD6A5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42012871D3BA86F00ABD6A5 /* UIKit.framework */; };
+		D420128A1D3BA87700ABD6A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42012891D3BA87700ABD6A5 /* Foundation.framework */; };
+		D420128C1D3BAFD000ABD6A5 /* border.png in Resources */ = {isa = PBXBuildFile; fileRef = D420128B1D3BAFD000ABD6A5 /* border.png */; };
+		D420128E1D3BBBAB00ABD6A5 /* bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = D420128D1D3BBBAB00ABD6A5 /* bubble.png */; };
+		D42012901D3BBC9C00ABD6A5 /* bubble-final.png in Resources */ = {isa = PBXBuildFile; fileRef = D420128F1D3BBC9C00ABD6A5 /* bubble-final.png */; };
 		D81A93251D3ADF4200420790 /* libFGTranslator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D81A93241D3ADF4200420790 /* libFGTranslator.a */; };
 		D81A93271D3ADF4A00420790 /* libAFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D81A93261D3ADF4A00420790 /* libAFNetworking.a */; };
 		D81A93291D3ADF5000420790 /* libPINCache.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D81A93281D3ADF5000420790 /* libPINCache.a */; };
@@ -59,6 +70,17 @@
 		81F40A48623315EE76ECE864 /* Pods-SpeechRecognitionServerExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeechRecognitionServerExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpeechRecognitionServerExample/Pods-SpeechRecognitionServerExample.debug.xcconfig"; sourceTree = "<group>"; };
 		C2ACD52F039238689119AEF7 /* Pods-SpeechRecognitionServerExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeechRecognitionServerExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpeechRecognitionServerExample/Pods-SpeechRecognitionServerExample.release.xcconfig"; sourceTree = "<group>"; };
 		D3FADB0B1889AA1F252B0827 /* libPods-SpeechRecognitionServerExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SpeechRecognitionServerExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D420127B1D3BA83F00ABD6A5 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		D420127D1D3BA84600ABD6A5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D420127F1D3BA84F00ABD6A5 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		D42012811D3BA85500ABD6A5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D42012831D3BA85D00ABD6A5 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		D42012851D3BA86900ABD6A5 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		D42012871D3BA86F00ABD6A5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D42012891D3BA87700ABD6A5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D420128B1D3BAFD000ABD6A5 /* border.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = border.png; path = "../../../../core-image/FaceDetectionPOC/FaceDetectionPOC/border.png"; sourceTree = "<group>"; };
+		D420128D1D3BBBAB00ABD6A5 /* bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bubble.png; path = ../../../../../Desktop/bubble.png; sourceTree = "<group>"; };
+		D420128F1D3BBC9C00ABD6A5 /* bubble-final.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bubble-final.png"; path = "../../../../../Desktop/bubble-final.png"; sourceTree = "<group>"; };
 		D81A93241D3ADF4200420790 /* libFGTranslator.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFGTranslator.a; path = "Pods/../build/Debug-iphoneos/FGTranslator/libFGTranslator.a"; sourceTree = "<group>"; };
 		D81A93261D3ADF4A00420790 /* libAFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAFNetworking.a; path = "Pods/../build/Debug-iphoneos/AFNetworking/libAFNetworking.a"; sourceTree = "<group>"; };
 		D81A93281D3ADF5000420790 /* libPINCache.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPINCache.a; path = "Pods/../build/Debug-iphoneos/PINCache/libPINCache.a"; sourceTree = "<group>"; };
@@ -75,6 +97,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D420128A1D3BA87700ABD6A5 /* Foundation.framework in Frameworks */,
+				D42012881D3BA86F00ABD6A5 /* UIKit.framework in Frameworks */,
+				D42012861D3BA86900ABD6A5 /* CoreVideo.framework in Frameworks */,
+				D42012841D3BA85D00ABD6A5 /* CoreImage.framework in Frameworks */,
+				D42012821D3BA85500ABD6A5 /* CoreGraphics.framework in Frameworks */,
+				D42012801D3BA84F00ABD6A5 /* CoreMedia.framework in Frameworks */,
+				D420127E1D3BA84600ABD6A5 /* QuartzCore.framework in Frameworks */,
+				D420127C1D3BA83F00ABD6A5 /* ImageIO.framework in Frameworks */,
 				D81A93291D3ADF5000420790 /* libPINCache.a in Frameworks */,
 				D81A93271D3ADF4A00420790 /* libAFNetworking.a in Frameworks */,
 				D81A93251D3ADF4200420790 /* libFGTranslator.a in Frameworks */,
@@ -114,6 +144,9 @@
 		744057E61AB005E900D4462E /* SpeechRecognitionServerExample */ = {
 			isa = PBXGroup;
 			children = (
+				D420128F1D3BBC9C00ABD6A5 /* bubble-final.png */,
+				D420128D1D3BBBAB00ABD6A5 /* bubble.png */,
+				D420128B1D3BAFD000ABD6A5 /* border.png */,
 				745A3B4D1ABCBB0D00F8191B /* Assets */,
 				744057EB1AB005E900D4462E /* AppDelegate.h */,
 				744057EC1AB005E900D4462E /* AppDelegate.m */,
@@ -149,6 +182,14 @@
 		B96F72370966F0AED947F535 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D42012891D3BA87700ABD6A5 /* Foundation.framework */,
+				D42012871D3BA86F00ABD6A5 /* UIKit.framework */,
+				D42012851D3BA86900ABD6A5 /* CoreVideo.framework */,
+				D42012831D3BA85D00ABD6A5 /* CoreImage.framework */,
+				D42012811D3BA85500ABD6A5 /* CoreGraphics.framework */,
+				D420127F1D3BA84F00ABD6A5 /* CoreMedia.framework */,
+				D420127D1D3BA84600ABD6A5 /* QuartzCore.framework */,
+				D420127B1D3BA83F00ABD6A5 /* ImageIO.framework */,
 				D81A93281D3ADF5000420790 /* libPINCache.a */,
 				D81A93261D3ADF4A00420790 /* libAFNetworking.a */,
 				D81A93241D3ADF4200420790 /* libFGTranslator.a */,
@@ -204,6 +245,7 @@
 				TargetAttributes = {
 					744057E31AB005E900D4462E = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 7238Y4BVFQ;
 					};
 				};
 			};
@@ -230,6 +272,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D42012901D3BBC9C00ABD6A5 /* bubble-final.png in Resources */,
+				D420128C1D3BAFD000ABD6A5 /* border.png in Resources */,
+				D420128E1D3BBBAB00ABD6A5 /* bubble.png in Resources */,
 				744057F31AB005E900D4462E /* Main.storyboard in Resources */,
 				F9558A361AEBF18200A0A230 /* settings.plist in Resources */,
 				745A3B4F1ABCBB4700F8191B /* batman.wav in Resources */,
@@ -406,6 +451,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"../../$PLATFORM_NAME/**",
@@ -423,7 +470,9 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos/AFNetworking",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/PINCache",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.abk.speak-ar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SpeechRecognitionServerExample/SpeechRecognitionServerExample-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -435,6 +484,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"../../$PLATFORM_NAME/**",
@@ -452,7 +503,9 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos/AFNetworking",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/PINCache",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.abk.speak-ar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SpeechRecognitionServerExample/SpeechRecognitionServerExample-Bridging-Header.h";
 			};
 			name = Release;

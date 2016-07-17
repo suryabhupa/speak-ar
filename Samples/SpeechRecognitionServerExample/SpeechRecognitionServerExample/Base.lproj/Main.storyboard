@@ -24,12 +24,18 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="micRadioButton">
                                         <rect key="frame" x="0.0" y="20" width="288" height="30"/>
                                         <state key="normal" title="Use Microphone with ShortPhrase mode">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="RadioButton_Click:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6cx-4a-MK1"/>
                                         </connections>
                                     </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dnO-Vz-4mS">
+                                        <rect key="frame" x="0.0" y="5" width="288" height="234"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -41,12 +47,6 @@
                                     <action selector="ChangeModeButton_Click:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iW6-LL-8of"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dnO-Vz-4mS">
-                                <rect key="frame" x="16" y="71" width="288" height="234"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wqY-yy-ypH">
                                 <rect key="frame" x="98" y="403" width="122" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -68,17 +68,20 @@
                                     <action selector="StartButton_Click:" destination="BYZ-38-t0r" eventType="touchUpInside" id="01N-Fz-JMF"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6YG-0B-mkq" userLabel="Preview View">
+                                <rect key="frame" x="38" y="121" width="244" height="129"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="dnO-Vz-4mS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="50" id="JdY-iI-FTG"/>
-                            <constraint firstItem="dnO-Vz-4mS" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="-50" id="gnX-CU-2Za"/>
                             <constraint firstItem="Wa8-Uo-PBr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="50" id="tw1-iG-DfC"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="btnOutlet" destination="ecs-PQ-URd" id="RH6-Em-76O"/>
                         <outlet property="micRadioButton" destination="micRadioButton" id="micRadioButtonOutlet"/>
+                        <outlet property="previewView" destination="6YG-0B-mkq" id="6Kc-5p-Cy0"/>
                         <outlet property="quoteText" destination="dnO-Vz-4mS" id="Mip-pL-68k"/>
                         <outlet property="radioGroup" destination="p95-w5-6xs" id="PQB-Oo-tHb"/>
                         <outlet property="startButton" destination="Wa8-Uo-PBr" id="Goc-cf-sdo"/>

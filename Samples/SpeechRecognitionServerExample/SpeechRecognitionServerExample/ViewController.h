@@ -17,11 +17,13 @@ FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TOR
 ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
+#import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 /**
 * The Main App
 */
-@interface ViewController : UNIVERSAL_VIEWCONTROLLER <SpeechRecognitionProtocol,UITableViewDataSource,UITableViewDelegate>
+@interface ViewController : UNIVERSAL_VIEWCONTROLLER <SpeechRecognitionProtocol,UITableViewDataSource,UITableViewDelegate, UIGestureRecognizerDelegate, AVCaptureVideoDataOutputSampleBufferDelegate>
 {
     NSMutableString* textOnScreen;
     DataRecognitionClient* dataClient;
@@ -47,6 +49,9 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEAL
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(strong , nonatomic) NSArray *data;
 - (IBAction)btnAction:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIView *previewView;
+
 
 @end
 
