@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "3760EFCAE25C75DAC4A1A0912CC18D848D5E86D5",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "3760EFCAE25C75DAC4A1A0912CC18D848D5E86D5" : 0,
+    "1C7A965FE485A5BA0145B9146B8C9E9F601019E2" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "492E14B8-124A-4AB0-BBCE-F05DBE079332",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "3760EFCAE25C75DAC4A1A0912CC18D848D5E86D5" : "speak-ar",
+    "1C7A965FE485A5BA0145B9146B8C9E9F601019E2" : "Cognitive-Speech-STT-iOS"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SpeechRecognitionServerExample",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Samples\/SpeechRecognitionServerExample\/SpeechRecognitionServerExample.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Microsoft\/Cognitive-Speech-STT-iOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1C7A965FE485A5BA0145B9146B8C9E9F601019E2"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/suryabhupa\/speak-ar",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3760EFCAE25C75DAC4A1A0912CC18D848D5E86D5"
+    }
+  ]
+}

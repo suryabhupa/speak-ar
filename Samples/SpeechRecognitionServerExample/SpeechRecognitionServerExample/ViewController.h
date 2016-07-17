@@ -21,7 +21,7 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEAL
 /**
 * The Main App
 */
-@interface ViewController : UNIVERSAL_VIEWCONTROLLER <SpeechRecognitionProtocol>
+@interface ViewController : UNIVERSAL_VIEWCONTROLLER <SpeechRecognitionProtocol,UITableViewDataSource,UITableViewDelegate>
 {
     NSMutableString* textOnScreen;
     DataRecognitionClient* dataClient;
@@ -41,6 +41,12 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEAL
 -(IBAction)StartButton_Click:(id)sender;
 -(IBAction)RadioButton_Click:(id)sender;
 -(IBAction)ChangeModeButton_Click:(id)sender;
+
+
+@property (weak, nonatomic) IBOutlet UIButton *btnOutlet;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property(strong , nonatomic) NSArray *data;
+- (IBAction)btnAction:(id)sender;
 
 @end
 

@@ -58,6 +58,7 @@
 NSString* ConvertSpeechRecoConfidenceEnumToString(Confidence confidence);
 NSString* ConvertSpeechErrorToString(int errorCode);
 
+
 /**
  * The Main App ViewController
  */
@@ -130,7 +131,8 @@ NSString* ConvertSpeechErrorToString(int errorCode);
  * @return The default locale.
  */
 -(NSString*)defaultLocale {
-    return @"en-US";
+    
+    return languageCode;
 }
 
 /**
@@ -174,9 +176,15 @@ NSString* ConvertSpeechErrorToString(int errorCode);
     return 0;
 }
 
+
 /**
  * Initialization to be done when app starts.
- */ 
+ */
+
+BOOL isTranslating = false;
+NSString *languageTitle = @"English";
+NSMutableString *languageCode = [NSMutableString stringWithString:@"en-US"];
+
 -(void)viewDidLoad {
     [super viewDidLoad];
 
@@ -187,9 +195,120 @@ NSString* ConvertSpeechErrorToString(int errorCode);
                                                         dataLongRadioButton, 
                                                         dataShortIntentRadioButton, 
                                                         nil];
+    
+    // The logic for handling the language selection
+    
+    self.tableView.hidden = YES;
+    [self.btnOutlet setBackgroundColor:[UIColor orangeColor]];
+    [self.btnOutlet setTitle:languageTitle forState:UIControlStateNormal];
+    //adding action programatically
+    [self.btnOutlet addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.btnOutlet];
+    
+    self.data = [[NSArray alloc]initWithObjects:@"English",@"Arabic",@"Chinese",@"Danish",@"French",@"German",@"Italian",@"Russian", nil];
+    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
     [self showMenu:TRUE];
     textOnScreen = [NSMutableString stringWithCapacity: 1000];
 }
+
+- (IBAction)btnClicked:(id)sender
+{
+    self.tableView.hidden = !self.tableView.hidden;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    return [self.data count];
+    
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    static NSString *simpleTableIdentifier = @"SimpleTableItem";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    
+    
+    if (cell == nil) {
+        
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+        
+    }
+    
+    
+    cell.textLabel.text = [self.data objectAtIndex:indexPath.row] ;
+    
+    //cell.textLabel.font = [UIFont systemFontOfSize:11.0];
+    
+    
+    return cell;
+    
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    languageTitle = cell.textLabel.text;
+    [self setLanguage];
+    [self.btnOutlet setTitle:cell.textLabel.text forState:UIControlStateNormal];
+//    NSLog(cell.textLabel.text);
+    self.tableView.hidden = YES;
+    
+    
+}
+
+//- (void)btn:(UI *)btn did:(NSIndexPath *)indexPath{
+//    
+//    
+//    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+//    [self.btnOutlet setTitle:cell.textLabel.text forState:UIControlStateNormal];
+//    NSLog(cell.textLabel.text);
+//    self.tableView.hidden = YES;
+//    
+//}
+
+
+- (IBAction)btnAction:(id)sender {
+    
+    if (self.tableView.hidden == YES) {
+        self.tableView.hidden = NO;
+    }
+    
+    else
+        self.tableView.hidden = YES;
+}
+
+- (void)setLanguage {
+    
+    if ([languageTitle isEqualToString:@"English"]) {
+        languageCode = [NSMutableString stringWithString:@"en-US"];
+    } else if ([languageTitle isEqualToString:@"Arabic"]) {
+        languageCode = [NSMutableString stringWithString:@"ar-EG"];
+    } else if ([languageTitle isEqualToString:@"Chinese"]) {
+        languageCode = [NSMutableString stringWithString:@"zh-CN"];
+    } else if ([languageTitle isEqualToString:@"Danish"]) {
+        languageCode = [NSMutableString stringWithString:@"da-DK"];
+    } else if ([languageTitle isEqualToString:@"French"]) {
+        languageCode = [NSMutableString stringWithString:@"fr-FR"];
+    } else if ([languageTitle isEqualToString:@"German"]) {
+        languageCode = [NSMutableString stringWithString:@"de-DE"];
+    } else if ([languageTitle isEqualToString:@"Italian"]) {
+        languageCode = [NSMutableString stringWithString:@"it-IT"];
+    } else if ([languageTitle isEqualToString:@"Russian"]) {
+        languageCode = [NSMutableString stringWithString:@"ru-RU"];
+    }
+    
+    //On language change, also set the micClient to nil, so that it gets recreated:
+    micClient = nil;
+    
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
  * Hides or displays the current mode control.
@@ -205,52 +324,29 @@ NSString* ConvertSpeechErrorToString(int errorCode);
  * @param sender The event sender
  */
 -(IBAction)StartButton_Click:(id)sender {
+    isTranslating = !isTranslating;
+    if (isTranslating) {
+        [self StartTranslating];
+    }
+}
+
+-(void) StartTranslating {
+
     [textOnScreen setString:(@"")];
     [self setText: textOnScreen];
     [[self startButton] setEnabled:NO];
     
     [self showMenu:FALSE];
-
-    //[self logRecognitionStart];
+    
+    [self logRecognitionStart];
     
     NSString *subscriptionKey = @"f57ee437811a4e96aa71328993cdc5b4";
-    //NSString *subscriptionKey = @"x";
     
-    
-//    
-//    FGTranslator *translator =
-//    [[FGTranslator alloc] initWithBingAzureClientId:@"speak-ar"
-//                                             secret:@"BFeZ3iSw4xd5nrE+dXWpWqwfa7dw4ipV+wlNNCJUSUI="];
-//    
-//    NSLog(@"translator: %@:", translator);
-//    // NSString *sourceLanguage = @"fr";
-//    // NSString *translated = @"en";
-//    
-//    [translator translateText:@"Bonjour!"
-//                   completion:^(NSError *error, NSString *translated, NSString *sourceLanguage)
-//    {
-//        if (error)
-//            NSLog(@"translation failed with error: %@", error);
-//        else
-//            NSLog(@"translated from %@: %@", sourceLanguage, translated);
-//    }];
-//    
-//    [translator supportedLanguages:^(NSError *error, NSArray *languageCodes)
-//    {
-//        if (error)
-//            NSLog(@"failed with error: %@", error);
-//        else
-//            NSLog(@"supported languages:%@", languageCodes);
-//    }];
-
-    
-    
-
     if (self.useMicrophone) {
         if (micClient == nil) {
-            if (!self.wantIntent) { 
+            if (!self.wantIntent) {
                 [self WriteLine:(@"--- Start microphone dictation with Intent detection ----")];
-
+                
                 micClient = [SpeechRecognitionServiceFactory createMicrophoneClient:(self.mode)
                                                                        withLanguage:(self.defaultLocale)
                                                                      withPrimaryKey:(subscriptionKey)
@@ -258,6 +354,8 @@ NSString* ConvertSpeechErrorToString(int errorCode);
                                                                        withProtocol:(self)];
             }
             else {
+                [self WriteLine:(@"Translating ...")];
+                NSLog(@"Bool value: %d", isTranslating);
                 micClient = [SpeechRecognitionServiceFactory createMicrophoneClientWithIntent:(self.defaultLocale)
                                                                                withPrimaryKey:(subscriptionKey)
                                                                              withSecondaryKey:(subscriptionKey)
@@ -266,12 +364,19 @@ NSString* ConvertSpeechErrorToString(int errorCode);
                                                                                  withProtocol:(self)];
             }
         }
-
+        
+        
+        NSLog(@"Bool value: %d", isTranslating);
         OSStatus status = [micClient startMicAndRecognition];
+        
+        [self WriteLine: (@"Translating ...")];
         if (status) {
             [self WriteLine:[[NSString alloc] initWithFormat:(@"Error starting audio. %@"), ConvertSpeechErrorToString(status)]];
         }
     }
+    
+}
+
 //    else {
 //        if (nil == dataClient) {
 //            if (!self.wantIntent) { 
@@ -293,26 +398,25 @@ NSString* ConvertSpeechErrorToString(int errorCode);
 //
 ////        [self sendAudioHelper:self.mode == SpeechRecognitionMode_ShortPhrase ? self.shortWaveFile : self.longWaveFile];
 //    }
-}
 
-///**
-// * Logs the recognition start.
-// */
-//-(void)logRecognitionStart {
-//    NSString* recoSource;
-//    if (self.useMicrophone) {
-//        recoSource = @"microphone";
-//    } else if (self.mode == SpeechRecognitionMode_ShortPhrase) {
-//        recoSource = @"short wav file";
-//    } else {
-//        recoSource = @"long wav file";
-//    }
-//
-//    [self WriteLine:[[NSString alloc] initWithFormat:(@"\n--- Start speech recognition using %@ with %@ mode in %@ language ----\n\n"), 
-//        recoSource, 
-//        self.mode == SpeechRecognitionMode_ShortPhrase ? @"Short" : @"Long",
-//        self.defaultLocale]];
-//}
+/**
+ * Logs the recognition start.
+ */
+-(void)logRecognitionStart {
+    NSString* recoSource;
+    if (self.useMicrophone) {
+        recoSource = @"microphone";
+    } else if (self.mode == SpeechRecognitionMode_ShortPhrase) {
+        recoSource = @"short wav file";
+    } else {
+        recoSource = @"long wav file";
+    }
+
+    [self WriteLine:[[NSString alloc] initWithFormat:(@"\n--- Start speech recognition using %@ with %@ mode in %@ language ----\n\n"), 
+        recoSource, 
+        self.mode == SpeechRecognitionMode_ShortPhrase ? @"Short" : @"Long",
+        self.defaultLocale]];
+}
 
 ///**
 // * Speech recognition with data (for example from a file or audio source).
@@ -413,8 +517,8 @@ NSString* ConvertSpeechErrorToString(int errorCode);
  */
 -(void)onPartialResponseReceived:(NSString*) response {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self WriteLine:(@"--- Partial result received by onPartialResponseReceived ---")];
-        [self WriteLine:response];
+        [self RewriteLine:(@"--- Partial result received by onPartialResponseReceived ---")];
+        [self RewriteLine:response];
     });
 }
 
@@ -454,6 +558,15 @@ NSString* ConvertSpeechErrorToString(int errorCode);
  * @param text The line to write.
  */
 -(void)WriteLine:(NSString*)text {
+    [textOnScreen appendString:(text)];
+    [self setText:textOnScreen];
+}
+
+/**
+ * Writes the line.
+ * @param text The line to write.
+ */
+-(void)RewriteLine:(NSString*)text {
     [textOnScreen setString:(text)];
     [self setText:textOnScreen];
 }
