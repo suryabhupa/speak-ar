@@ -1,4 +1,11 @@
 /*
+ TODO List:
+ endMicAndRecognition for ending with the button.
+ Ich liebe dich repeats itself!
+ Add target language configuration.
+ */
+
+/*
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license.
  *
@@ -184,6 +191,7 @@ NSString* ConvertSpeechErrorToString(int errorCode);
 BOOL isTranslating = false;
 NSString *languageTitle = @"English";
 NSMutableString *languageCode = [NSMutableString stringWithString:@"en-US"];
+NSMutableString *translation = [NSMutableString stringWithString: @""];
 
 -(void)viewDidLoad {
     [super viewDidLoad];
@@ -212,6 +220,18 @@ NSMutableString *languageCode = [NSMutableString stringWithString:@"en-US"];
     
     [self showMenu:TRUE];
     textOnScreen = [NSMutableString stringWithCapacity: 1000];
+
+    ////////
+    
+//    [translator supportedLanguages:^(NSError *error, NSArray *languageCodes)
+//     {
+//         NSLog(@"supported languages:");
+//         if (error)
+//             NSLog(@"failed with error: %@", error);
+//         else
+//             NSLog(@"supported languages:%@", languageCodes);
+//     }];
+    
 }
 
 - (IBAction)btnClicked:(id)sender
@@ -344,27 +364,13 @@ NSMutableString *languageCode = [NSMutableString stringWithString:@"en-US"];
     
     if (self.useMicrophone) {
         if (micClient == nil) {
-            if (!self.wantIntent) {
-                [self WriteLine:(@"--- Start microphone dictation with Intent detection ----")];
-                
-                micClient = [SpeechRecognitionServiceFactory createMicrophoneClient:(self.mode)
-                                                                       withLanguage:(self.defaultLocale)
-                                                                     withPrimaryKey:(subscriptionKey)
-                                                                   withSecondaryKey:(subscriptionKey)
-                                                                       withProtocol:(self)];
-            }
-            else {
-                [self WriteLine:(@"Translating ...")];
-                NSLog(@"Bool value: %d", isTranslating);
-                micClient = [SpeechRecognitionServiceFactory createMicrophoneClientWithIntent:(self.defaultLocale)
-                                                                               withPrimaryKey:(subscriptionKey)
-                                                                             withSecondaryKey:(subscriptionKey)
-                                                                                withLUISAppID:(self.luisAppId)
-                                                                               withLUISSecret:(self.luisSubscriptionID)
-                                                                                 withProtocol:(self)];
-            }
+            micClient = [SpeechRecognitionServiceFactory createMicrophoneClientWithIntent:(self.defaultLocale)
+                                                                           withPrimaryKey:(subscriptionKey)
+                                                                         withSecondaryKey:(subscriptionKey)
+                                                                            withLUISAppID:(self.luisAppId)
+                                                                           withLUISSecret:(self.luisSubscriptionID)
+                                                                             withProtocol:(self)];
         }
-        
         
         NSLog(@"Bool value: %d", isTranslating);
         OSStatus status = [micClient startMicAndRecognition];
@@ -376,28 +382,6 @@ NSMutableString *languageCode = [NSMutableString stringWithString:@"en-US"];
     }
     
 }
-
-//    else {
-//        if (nil == dataClient) {
-//            if (!self.wantIntent) { 
-//                dataClient = [SpeechRecognitionServiceFactory createDataClient:(self.mode)
-//                                                                  withLanguage:(self.defaultLocale)
-//                                                                withPrimaryKey:(subscriptionKey)
-//                                                              withSecondaryKey:(subscriptionKey)
-//                                                                  withProtocol:(self)];
-//            }
-//            else {
-//                dataClient = [SpeechRecognitionServiceFactory createDataClientWithIntent:(self.defaultLocale)
-//                                                                          withPrimaryKey:(subscriptionKey)
-//                                                                        withSecondaryKey:(subscriptionKey)
-//                                                                           withLUISAppID:(self.luisAppId)
-//                                                                          withLUISSecret:(self.luisSubscriptionID)
-//                                                                            withProtocol:(self)];
-//            }
-//        }
-//
-////        [self sendAudioHelper:self.mode == SpeechRecognitionMode_ShortPhrase ? self.shortWaveFile : self.longWaveFile];
-//    }
 
 /**
  * Logs the recognition start.
@@ -418,49 +402,6 @@ NSMutableString *languageCode = [NSMutableString stringWithString:@"en-US"];
         self.defaultLocale]];
 }
 
-///**
-// * Speech recognition with data (for example from a file or audio source).
-// * The data is broken up into buffers and each buffer is sent to the Speech Recognition Service.
-// * No modification is done to the buffers, so the user can apply their own Silence Detection
-// * @param filename The audio file to send.
-// */
-//-(void)sendAudioHelper:(NSString*)filename {
-//    NSFileHandle* fileHandle = nil;
-//    @try {
-//
-//        NSBundle* mainResouceArea = [NSBundle mainBundle];
-//        NSString* filePathAndName = [mainResouceArea pathForResource:(filename)
-//                                                              ofType:(@"wav")];
-//        NSURL* fileURL = [[NSURL alloc] initFileURLWithPath:(filePathAndName)];
-//
-//        fileHandle = [NSFileHandle fileHandleForReadingFromURL:(fileURL)
-//                                                         error:(nil)];
-//        
-//        NSData* buffer;
-//        int bytesRead = 0;
-//        
-//        do {
-//            // Get  Audio data to send into byte buffer.
-//            buffer = [fileHandle readDataOfLength:(1024)];
-//            bytesRead = (int)[buffer length];
-//            
-//            if (buffer != nil && bytesRead != 0) {
-//                // Send of audio data to service.
-//                [dataClient sendAudio:(buffer)
-//                           withLength:(bytesRead)];
-//            }
-//        } while (buffer != nil && bytesRead != 0);
-//    }
-//    @catch(NSException* ex) {
-//        NSLog(@"%@", ex);
-//    }
-//    @finally {
-//        [dataClient endAudio];
-//        if (fileHandle != nil) {
-//            [fileHandle closeFile];
-//        }
-//    }
-//}
 
 /**
  * Called when a final response is received.
@@ -482,34 +423,42 @@ NSMutableString *languageCode = [NSMutableString stringWithString:@"en-US"];
             [[self startButton] setEnabled:YES];
         });
     }
-        
+      
     if (!isFinalDicationMessage) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self WriteLine:(@"********* Final n-BEST Results *********")];
-            for (int i = 0; i < [response.RecognizedPhrase count]; i++) {
-                RecognizedPhrase* phrase = response.RecognizedPhrase[i];
-                [self WriteLine:[[NSString alloc] initWithFormat:(@"[%d] Confidence=%@ Text=\"%@\""), 
-                                  i,
-                                  ConvertSpeechRecoConfidenceEnumToString(phrase.Confidence),
-                                  phrase.DisplayText]];
-            }
-
-            [self WriteLine:(@"")];
+            RecognizedPhrase* phrase = response.RecognizedPhrase[0];
+            NSString *translatedText = [self translateTranscription: (phrase.DisplayText)];
+            NSLog(translatedText);
+            [self WriteLine:translatedText];
         });
     }
 }
 
-///**
-// * Called when a final response is received and its intent is parsed 
-// * @param result The intent result.
-// */
-//-(void)onIntentReceived:(IntentResult*) result {
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        [self WriteLine:(@"--- Intent received by onIntentReceived ---")];
-//        [self WriteLine:(result.Body)];
-//        [self WriteLine:(@"")];
-//    });
-//}
+-(NSString*)translateTranscription:(NSString*) transcribedText {
+    
+    NSString *source = @"en";
+    NSString *target = @"de";
+    
+    FGTranslator *translator =
+    [[FGTranslator alloc] initWithBingAzureClientId:@"we-ar"
+                                             secret:@"Kb8Jwf0id7WNT6dbMlwscVgkpS/Sj8RtP+XhZaPOPbU="];
+    
+    [translator translateText:transcribedText
+                   withSource:(NSString *)source
+                       target:(NSString *)target
+                   completion:^(NSError *error, NSString *translated, NSString *sourceLanguage)
+     {
+         if (error) {
+             NSLog(@"translation failed with error: %@", error);
+         }
+         else {
+//             NSLog(@"translated from %@: %@", sourceLanguage, translated);
+             translation = [NSMutableString stringWithString:translated];
+         }
+     }];
+    
+    return translation;
+}
 
 /**
  * Called when a partial response is received
