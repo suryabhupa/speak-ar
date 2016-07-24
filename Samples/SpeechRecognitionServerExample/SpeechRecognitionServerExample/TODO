@@ -1,0 +1,24 @@
+TODO List:
+Development:
+Embedding polishing (3hrs)
+Text updates itself (original language)
+
+UI Improvement: (3-4 hrs)
+Main screen full video (1 hr)
+Two buttons for language spoken and text to text (1 hr)
+Button starts and ends the recording
+
+Bugs:
+The audio not always captures
+The image itself!
+endMicAndRecognition for ending with the button.
+
+----
+Production:
+Codebase:
+Clean the codebase (2hrs)
+
+Readme:
+Libraries used: (1hr)
+
+APIs: Microsoft Bing Speech to Text, Microsoft Text to Text

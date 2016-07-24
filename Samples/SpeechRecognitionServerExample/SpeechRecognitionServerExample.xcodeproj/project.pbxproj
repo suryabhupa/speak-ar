@@ -17,6 +17,13 @@
 		745A3B4F1ABCBB4700F8191B /* batman.wav in Resources */ = {isa = PBXBuildFile; fileRef = 745A3B4E1ABCBB4700F8191B /* batman.wav */; };
 		745A3B511ABCBB6000F8191B /* whatstheweatherlike.wav in Resources */ = {isa = PBXBuildFile; fileRef = 745A3B501ABCBB6000F8191B /* whatstheweatherlike.wav */; };
 		749D10BE1ABA248D00903F55 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 749D10BC1ABA248D00903F55 /* AVFoundation.framework */; };
+		D403D27E1D42380E0044788B /* bubble-final.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D403D27D1D42380E0044788B /* bubble-final.jpeg */; };
+		D403D2801D4239110044788B /* bubble-original.png in Resources */ = {isa = PBXBuildFile; fileRef = D403D27F1D4239110044788B /* bubble-original.png */; };
+		D403D2821D423A090044788B /* bubble-new.png in Resources */ = {isa = PBXBuildFile; fileRef = D403D2811D423A090044788B /* bubble-new.png */; };
+		D403D2841D42450B0044788B /* bubble-medium.svg in Resources */ = {isa = PBXBuildFile; fileRef = D403D2831D42450B0044788B /* bubble-medium.svg */; };
+		D403D2861D4245830044788B /* bubble-3d.png in Resources */ = {isa = PBXBuildFile; fileRef = D403D2851D4245830044788B /* bubble-3d.png */; };
+		D403D2881D441E780044788B /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = D403D2871D441E780044788B /* TODO */; };
+		D403D28A1D442D030044788B /* ReadMe in Resources */ = {isa = PBXBuildFile; fileRef = D403D2891D442D030044788B /* ReadMe */; };
 		D420127C1D3BA83F00ABD6A5 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D420127B1D3BA83F00ABD6A5 /* ImageIO.framework */; };
 		D420127E1D3BA84600ABD6A5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D420127D1D3BA84600ABD6A5 /* QuartzCore.framework */; };
 		D42012801D3BA84F00ABD6A5 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D420127F1D3BA84F00ABD6A5 /* CoreMedia.framework */; };
@@ -27,7 +34,6 @@
 		D420128A1D3BA87700ABD6A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42012891D3BA87700ABD6A5 /* Foundation.framework */; };
 		D420128C1D3BAFD000ABD6A5 /* border.png in Resources */ = {isa = PBXBuildFile; fileRef = D420128B1D3BAFD000ABD6A5 /* border.png */; };
 		D420128E1D3BBBAB00ABD6A5 /* bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = D420128D1D3BBBAB00ABD6A5 /* bubble.png */; };
-		D42012901D3BBC9C00ABD6A5 /* bubble-final.png in Resources */ = {isa = PBXBuildFile; fileRef = D420128F1D3BBC9C00ABD6A5 /* bubble-final.png */; };
 		D81A93251D3ADF4200420790 /* libFGTranslator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D81A93241D3ADF4200420790 /* libFGTranslator.a */; };
 		D81A93271D3ADF4A00420790 /* libAFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D81A93261D3ADF4A00420790 /* libAFNetworking.a */; };
 		D81A93291D3ADF5000420790 /* libPINCache.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D81A93281D3ADF5000420790 /* libPINCache.a */; };
@@ -70,6 +76,13 @@
 		81F40A48623315EE76ECE864 /* Pods-SpeechRecognitionServerExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeechRecognitionServerExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpeechRecognitionServerExample/Pods-SpeechRecognitionServerExample.debug.xcconfig"; sourceTree = "<group>"; };
 		C2ACD52F039238689119AEF7 /* Pods-SpeechRecognitionServerExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeechRecognitionServerExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpeechRecognitionServerExample/Pods-SpeechRecognitionServerExample.release.xcconfig"; sourceTree = "<group>"; };
 		D3FADB0B1889AA1F252B0827 /* libPods-SpeechRecognitionServerExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SpeechRecognitionServerExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D403D27D1D42380E0044788B /* bubble-final.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "bubble-final.jpeg"; path = "../../../../../Desktop/bubble-final.jpeg"; sourceTree = "<group>"; };
+		D403D27F1D4239110044788B /* bubble-original.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bubble-original.png"; path = "../../../../../Desktop/bubble-original.png"; sourceTree = "<group>"; };
+		D403D2811D423A090044788B /* bubble-new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bubble-new.png"; path = "../../../../../Desktop/bubble-new.png"; sourceTree = "<group>"; };
+		D403D2831D42450B0044788B /* bubble-medium.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "bubble-medium.svg"; path = "../../../../../Desktop/bubble-medium.svg"; sourceTree = "<group>"; };
+		D403D2851D4245830044788B /* bubble-3d.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bubble-3d.png"; path = "../../../../../Desktop/bubble-3d.png"; sourceTree = "<group>"; };
+		D403D2871D441E780044788B /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
+		D403D2891D442D030044788B /* ReadMe */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe; sourceTree = "<group>"; };
 		D420127B1D3BA83F00ABD6A5 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		D420127D1D3BA84600ABD6A5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D420127F1D3BA84F00ABD6A5 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -80,7 +93,6 @@
 		D42012891D3BA87700ABD6A5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D420128B1D3BAFD000ABD6A5 /* border.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = border.png; path = "../../../../core-image/FaceDetectionPOC/FaceDetectionPOC/border.png"; sourceTree = "<group>"; };
 		D420128D1D3BBBAB00ABD6A5 /* bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bubble.png; path = ../../../../../Desktop/bubble.png; sourceTree = "<group>"; };
-		D420128F1D3BBC9C00ABD6A5 /* bubble-final.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bubble-final.png"; path = "../../../../../Desktop/bubble-final.png"; sourceTree = "<group>"; };
 		D81A93241D3ADF4200420790 /* libFGTranslator.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFGTranslator.a; path = "Pods/../build/Debug-iphoneos/FGTranslator/libFGTranslator.a"; sourceTree = "<group>"; };
 		D81A93261D3ADF4A00420790 /* libAFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAFNetworking.a; path = "Pods/../build/Debug-iphoneos/AFNetworking/libAFNetworking.a"; sourceTree = "<group>"; };
 		D81A93281D3ADF5000420790 /* libPINCache.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPINCache.a; path = "Pods/../build/Debug-iphoneos/PINCache/libPINCache.a"; sourceTree = "<group>"; };
@@ -144,7 +156,11 @@
 		744057E61AB005E900D4462E /* SpeechRecognitionServerExample */ = {
 			isa = PBXGroup;
 			children = (
-				D420128F1D3BBC9C00ABD6A5 /* bubble-final.png */,
+				D403D2851D4245830044788B /* bubble-3d.png */,
+				D403D2831D42450B0044788B /* bubble-medium.svg */,
+				D403D2811D423A090044788B /* bubble-new.png */,
+				D403D27F1D4239110044788B /* bubble-original.png */,
+				D403D27D1D42380E0044788B /* bubble-final.jpeg */,
 				D420128D1D3BBBAB00ABD6A5 /* bubble.png */,
 				D420128B1D3BAFD000ABD6A5 /* border.png */,
 				745A3B4D1ABCBB0D00F8191B /* Assets */,
@@ -156,6 +172,8 @@
 				744057F41AB005E900D4462E /* Images.xcassets */,
 				744057F61AB005E900D4462E /* LaunchScreen.xib */,
 				744057E71AB005E900D4462E /* Supporting Files */,
+				D403D2871D441E780044788B /* TODO */,
+				D403D2891D442D030044788B /* ReadMe */,
 			);
 			path = SpeechRecognitionServerExample;
 			sourceTree = "<group>";
@@ -272,14 +290,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D42012901D3BBC9C00ABD6A5 /* bubble-final.png in Resources */,
 				D420128C1D3BAFD000ABD6A5 /* border.png in Resources */,
 				D420128E1D3BBBAB00ABD6A5 /* bubble.png in Resources */,
 				744057F31AB005E900D4462E /* Main.storyboard in Resources */,
+				D403D2821D423A090044788B /* bubble-new.png in Resources */,
+				D403D2881D441E780044788B /* TODO in Resources */,
+				D403D28A1D442D030044788B /* ReadMe in Resources */,
+				D403D27E1D42380E0044788B /* bubble-final.jpeg in Resources */,
+				D403D2861D4245830044788B /* bubble-3d.png in Resources */,
+				D403D2841D42450B0044788B /* bubble-medium.svg in Resources */,
 				F9558A361AEBF18200A0A230 /* settings.plist in Resources */,
 				745A3B4F1ABCBB4700F8191B /* batman.wav in Resources */,
 				745A3B511ABCBB6000F8191B /* whatstheweatherlike.wav in Resources */,
 				744057F81AB005E900D4462E /* LaunchScreen.xib in Resources */,
+				D403D2801D4239110044788B /* bubble-original.png in Resources */,
 				744057F51AB005E900D4462E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -463,6 +487,7 @@
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = SpeechRecognitionServerExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -496,6 +521,7 @@
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = SpeechRecognitionServerExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

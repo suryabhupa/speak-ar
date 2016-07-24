@@ -1,42 +1,4 @@
-/*
- TODO List:
- endMicAndRecognition for ending with the button.
- Ich liebe dich repeats itself!
- Add target language configuration.
- */
 
-/*
- * Copyright (c) Microsoft. All rights reserved.
- * Licensed under the MIT license.
- *
- * Microsoft Cognitive Services (formerly Project Oxford): https://www.microsoft.com/cognitive-services
- *
- * Microsoft Cognitive Services (formerly Project Oxford) GitHub:
- * https://github.com/Microsoft/Cognitive-Speech-STT-iOS
- *
- * Copyright (c) Microsoft Corporation
- * All rights reserved.
- *
- * MIT License:
- * Permission is hereby granted, free of charge, to any person obtaining
- * a copy of this software and associated documentation files (the
- * "Software"), to deal in the Software without restriction, including
- * without limitation the rights to use, copy, modify, merge, publish,
- * distribute, sublicense, and/or sell copies of the Software, and to
- * permit persons to whom the Software is furnished to do so, subject to
- * the following conditions:
- *
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
- * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
- * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
- * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
 
 // azure secret: BFeZ3iSw4xd5nrE+dXWpWqwfa7dw4ipV+wlNNCJUSUI=
 
@@ -217,6 +179,8 @@ BOOL isTranslating = false;
 NSString *languageTitle = @"English";
 NSMutableString *languageCode = [NSMutableString stringWithString:@"en-US"];
 NSMutableString *translation = [NSMutableString stringWithString: @""];
+NSString *bubbleText = @"";
+
 
 -(void)viewDidLoad {
     [super viewDidLoad];
@@ -224,7 +188,8 @@ NSMutableString *translation = [NSMutableString stringWithString: @""];
     [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
     
     [self setupAVCapture];
-    self.borderImage = [UIImage imageNamed:@"bubble-final"];
+    self.borderImage = [UIImage imageNamed:@"bubble-3d"];
+    
     NSDictionary *detectorOptions = [[NSDictionary alloc] initWithObjectsAndKeys:CIDetectorAccuracyLow, CIDetectorAccuracy, nil];
     self.faceDetector = [CIDetector detectorOfType:CIDetectorTypeFace context:nil options:detectorOptions];
     
@@ -419,15 +384,6 @@ NSMutableString *translation = [NSMutableString stringWithString: @""];
     
 }
 
-//- (id)initWithFrame:(CGRect)frame {
-//    if (self = [super initWithFrame:frame]) {
-//        [self setBackgroundColor:[UIColor clearColor]];
-//    }
-//    return self;
-//}
-
-
-
 /**
  * Logs the recognition start.
  */
@@ -514,6 +470,7 @@ NSMutableString *translation = [NSMutableString stringWithString: @""];
     dispatch_async(dispatch_get_main_queue(), ^{
         [self RewriteLine:(@"--- Partial result received by onPartialResponseReceived ---")];
         [self RewriteLine:response];
+        [self setBubbleText:response];
     });
 }
 
@@ -683,6 +640,10 @@ NSString* ConvertSpeechRecoConfidenceEnumToString(Confidence confidence) {
 
 @synthesize isUsingFrontFacingCamera = _isUsingFrontFacingCamera;
 
+- (void)setBubbleText:(NSString*)text {
+    bubbleText = text;
+}
+
 - (void)setupAVCapture
 {
     NSError *error = nil;
@@ -843,18 +804,6 @@ NSString* ConvertSpeechRecoConfidenceEnumToString(Confidence confidence) {
     return videoBox;
 }
 
-//- (id)initWithFrame:(CGRect)frame backgroundColor:(UIColor*)color andTransparentRects:(NSArray*)rects
-//{
-//    backgroundColor = color;
-//    rectsArray = rects;
-//    self = [super initWithFrame:frame];
-//    if (self) {
-//        // Initialization code
-//        self.opaque = NO;
-//    }
-//    return self;
-//}
-
 
 // called asynchronously as the capture output is capturing sample buffers, this method asks the face detector
 // to detect features and for each draw the green border in a layer and set appropriate orientation
@@ -862,6 +811,8 @@ NSString* ConvertSpeechRecoConfidenceEnumToString(Confidence confidence) {
       forVideoBox:(CGRect)clearAperture
       orientation:(UIDeviceOrientation)orientation
 {
+    
+    
     NSArray *sublayers = [NSArray arrayWithArray:[self.previewLayer sublayers]];
     NSInteger sublayersCount = [sublayers count], currentSublayer = 0;
     NSInteger featuresCount = [features count], currentFeature = 0;
@@ -930,131 +881,21 @@ NSString* ConvertSpeechRecoConfidenceEnumToString(Confidence confidence) {
             }
         }
 
-        // note: replace "ImageUtils" with the class where you pasted the method above
-
-        /////////////////////
-//        
-//        NSString *text = @"Some text";
-//        
-//        UIGraphicsBeginImageContextWithOptions(self.borderImage.size, YES, 0.0f);
-//        [self.borderImage drawInRect:CGRectMake(0,0,self.borderImage.size.width/2, self.borderImage.size.height/2)];
-//        CGRect rect = CGRectMake(CGPointMake(0, 0).x, CGPointMake(0, 0).y, self.borderImage.size.width/2, self.borderImage.size.height/2);
-//        
-//        //    rect.backgroundColor = [UIColor clearColor];
-//        //
-//        //    [UIImageView setBackgroundColor:[UIColor clearColor]];
-//        ////    [self frame setBackgroundColor:[UIColor clearColor]];
-//        
-//        [[UIColor whiteColor] set];
-//        
-//        CGContextRef context = UIGraphicsGetCurrentContext();
-//        CGContextSaveGState(context);
-//        CGRect a = self.frame;
-//        CGRect a = featureLayer.frame;
-//        a.origin.x=0;
-//        a.origin.y=0;
-//        CGContextSetBlendMode(context, kCGBlendModeClear);
-//        CGContextSetFillColorWithColor(context, [UIColor blackColor].CGColor);
-//        CGContextAddRect(context, a);
-////        CGContextFillPath(context);
-////        CGContextRestoreGState(context);
-//        
-//        UIFont *font = [UIFont boldSystemFontOfSize:20];
-//        if([text respondsToSelector:@selector(drawInRect:withAttributes:)])
-//        {
-//            //iOS 7
-//            NSDictionary *att = @{NSFontAttributeName:font};
-//            [text drawInRect:rect withAttributes:att];
-//        }
-//        else
-//        {
-//            //legacy support
-//            [text drawInRect:CGRectIntegral(rect) withFont:font];
-//        }
-        
-//        UIImage *imageWithText = UIGraphicsGetImageFromCurrentImageContext();
-//        UIGraphicsEndImageContext();
-        
-//            self = [super initWithFrame:frame];
-//            if (self) {
-//                // Initialization code
-//                [self setBackgroundColor:[UIColor clearColor]];
-//            }
-//            return self;
-//        
-     
-//                UIImage *imageWithText = [ViewController drawText:@"Some text"
-//                                                inImage:self.borderImage
-//                                                atPoint:CGPointMake(0, 0)];
-
-        UIImage *imageWithText = [ViewController drawFront: self.borderImage
-                                                 text: @"Text"
-                                                 atPoint: CGPointMake(0, 0)];
+        self.borderImage = [ViewController drawText:bubbleText
+                                            inImage:self.borderImage
+                                            atPoint:CGPointMake(0, 0)];
         
         // create a new one if necessary
         if ( !featureLayer ) {
             featureLayer = [[CALayer alloc]init];
-            featureLayer.contents = (id)imageWithText.CGImage;
             featureLayer.contents = (id)self.borderImage.CGImage;
             [featureLayer setName:@"FaceLayer"];
-            
+            NSLog(@"Creating new layer");
             [self.previewLayer addSublayer:featureLayer];
             
             featureLayer = nil;
         }
         [featureLayer setFrame:faceRect];
-       
-        //////////////////////
-        
-        //        CALayer *sublayer = [CALayer layer];
-        //        sublayer.shadowColor = [UIColor blackColor].CGColor;
-        //        sublayer.shadowOpacity = 0.8;
-        //        [featureLayer addSublayer:sublayer];
-        ////        [CALayer resizeLayer:sublayer to:size];
-        //
-        
-        
-        //        CATextLayer *label = [[CATextLayer alloc] init];
-        //        [label setFont:@"Helvetica-Bold"];
-        //        [label setFontSize:20];
-        //        [label setFrame:validFrame];
-        //        [label setString:@"Hello"];
-        //        [label setAlignmentMode:kCAAlignmentCenter];
-        //        [label setForegroundColor:[[UIColor clearColor] CGColor]];
-        //        [featureLayer insertSublayer:label Above:layer];
-        //        
-        //        [label release];
-        
-        // re-use an existing layer if possible
-        
-        //            CATextLayer *TextLayer = [CATextLayer layer];
-        //            TextLayer.string = @"Here I am, coming for you!";
-        //            TextLayer.bounds = CGRectMake(0.0f, 0.0f, 100.0f, 100.0f);
-        //
-        ////            UILabel *label = [[UILabel alloc] initWithFrame:TextLayer.bounds];
-        ////            label.opaque = NO;
-        ////            label.font = [UIFont systemFontOfSize:14];
-        ////            label.numberOfLines = 2;
-        ////            label.textAlignment = UITextAlignmentCenter;
-        ////            label.textColor = [UIColor darkGrayColor];
-        ////            label.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.0];
-        ////            [label setText:@"Test Message"];
-        //
-        //            [TextLayer setFontSize:20];
-        ////            TextLayer.font = [UIFont boldSystemFontOfSize:18].fontName;
-        //            TextLayer.backgroundColor = [UIColor blackColor].CGColor;
-        //            TextLayer.position = CGPointMake(80.0, 80.0f);
-        //            TextLayer.wrapped = NO;
-        //            [featureLayer addSublayer:TextLayer];
-        //
-        ////            CATextLayer *label = [[CATextLayer alloc] init];
-        ////            [label setFontSize:20];
-        //////            [label setFrame: featureLayer.frame];
-        ////            [label setString:@"Hello, do you see that?"];
-        //////            [label setAlignmentMode:kCAAlignmentCenter];
-        ////            [label setForegroundColor:[[UIColor redColor] CGColor]];
-        ////            [featureLayer addSublayer:label];
-        
         
         switch (orientation) {
             case UIDeviceOrientationPortrait:
@@ -1081,86 +922,38 @@ NSString* ConvertSpeechRecoConfidenceEnumToString(Confidence confidence) {
 }
 
 
-+(UIImage*)drawFront:(UIImage*)image
-                text:(NSString*)text
-            atPoint:(CGPoint)point
++(UIImage*) drawText:(NSString*) text
+             inImage:(UIImage*)  myImage
+             atPoint:(CGPoint)   point
 {
-    UIFont *font = [UIFont fontWithName:@"Halter" size:21];
-    UIGraphicsBeginImageContext(image.size);
-    [image drawInRect:CGRectMake(0,0,image.size.width,image.size.height)];
-    CGRect rect = CGRectMake(point.x, (point.y - 5), image.size.width, image.size.height);
-    [[UIColor whiteColor] set];
+    UIGraphicsBeginImageContext(myImage.size);
+    [myImage drawInRect:CGRectMake(0,0,myImage.size.width,myImage.size.height)];
+    UITextView *myText = [[UITextView alloc] init];
+    myText.font = [UIFont fontWithName:@"TrebuchetMS-Bold" size:50.0f];
+    myText.textColor = [UIColor whiteColor];
+    myText.text = text;
+    myText.backgroundColor = [UIColor clearColor];
     
-    NSMutableAttributedString* attString = [[NSMutableAttributedString alloc] initWithString:text];
-    NSRange range = NSMakeRange(0, [attString length]);
+    CGSize maximumLabelSize = CGSizeMake(myImage.size.width,myImage.size.height);
+//    CGSize expectedLabelSize = [myText.text sizeWithFont:myText.font
+//                                       constrainedToSize:maximumLabelSize];
+//    
+    CGSize expectedLabelSize = [myText.text sizeWithAttributes:
+                                @{NSFontAttributeName:myText.font}];
+//                                           lineBreakMode:UILineBreakModeWordWrap];
+    myText.frame = CGRectMake((myImage.size.width / 2) - (expectedLabelSize.width / 2),
+                              (myImage.size.height / 2) - (expectedLabelSize.height / 2),
+                              myImage.size.width,
+                              myImage.size.height);
     
-//    [attString addAttribute:NSFontAttributeName value:font range:range];
-    [attString addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:range];
-    
-    NSShadow* shadow = [[NSShadow alloc] init];
-    shadow.shadowColor = [UIColor darkGrayColor];
-    shadow.shadowOffset = CGSizeMake(1.0f, 1.5f);
-    [attString addAttribute:NSShadowAttributeName value:shadow range:range];
-    
-    [attString drawInRect:CGRectIntegral(rect)];
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    [[UIColor clearColor] set];
+    [myText.text drawInRect:myText.frame withAttributes:@{NSFontAttributeName:myText.font}];
+//    [myText.text drawInRect:myText.frame withFont:myText.font];
+    UIImage *myNewImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
-    return newImage;
+    return myNewImage;
 }
 
-//+(UIImage*) drawText:(NSString*) text
-//             inImage:(UIImage*)  image
-//             atPoint:(CGPoint)   point
-//{
-//    UIGraphicsBeginImageContextWithOptions(image.size, YES, 0.0f);
-//    [image drawInRect:CGRectMake(0,0,image.size.width/2,image.size.height/2)];
-//    CGRect rect = CGRectMake(point.x, point.y, image.size.width/2, image.size.height/2);
-//    
-////    rect.backgroundColor = [UIColor clearColor];
-////    
-////    [UIImageView setBackgroundColor:[UIColor clearColor]];
-//////    [self frame setBackgroundColor:[UIColor clearColor]];
-//    
-//    [[UIColor whiteColor] set];
-//    
-//        CGContextRef context = UIGraphicsGetCurrentContext();
-//        CGContextSaveGState(context);
-//    //    CGRect a=self.frame;
-//    //    a.origin.x=0;
-//    //    a.origin.y=0;
-//        CGContextSetBlendMode(context, kCGBlendModeClear);
-//    //    CGContextSetFillColorWithColor(context, [UIColor blackColor].CGColor);
-//    //    CGContextAddRect(context, a);
-//        CGContextFillPath(context);
-//        CGContextRestoreGState(context);
-//    
-//    UIFont *font = [UIFont boldSystemFontOfSize:20];
-//    if([text respondsToSelector:@selector(drawInRect:withAttributes:)])
-//    {
-//        //iOS 7
-//        NSDictionary *att = @{NSFontAttributeName:font};
-//        [text drawInRect:rect withAttributes:att];
-//    }
-//    else
-//    {
-//        //legacy support
-//        [text drawInRect:CGRectIntegral(rect) withFont:font];
-//    }
-//    
-//    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
-//    
-//    //    self = [super initWithFrame:frame];
-//    //    if (self) {
-//    //        // Initialization code
-//    //        [self setBackgroundColor:[UIColor clearColor]];
-//    //    }
-//    //    return self;
-//    
-//    return newImage;
-//    
-//}
 
 - (NSNumber *) exifOrientation: (UIDeviceOrientation) orientation
 {
